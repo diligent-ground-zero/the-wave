@@ -1,7 +1,3 @@
-// import SimplexNoise from 'simplex-noise'
-// import * as THREE from 'three'
-// import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
-
 const musicContainer = document.getElementById('music-container')
 const playBtn = document.getElementById('play')
 const prevBtn = document.getElementById('prev')
