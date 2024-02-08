@@ -4,6 +4,7 @@ node_modules
 dist
 # don't lint nyc coverage output
 coverage
+music
 
 example
 vite.config.js
