@@ -41,7 +41,7 @@ function initMusicPlayer() {
     var link = document.createElement('link')
     link.href = cdnPrefix + song.fileName
     link.as = 'audio'
-    link.rel = 'preload'
+    link.rel = 'prefetch'
     document.head.appendChild(link)
   })
 
