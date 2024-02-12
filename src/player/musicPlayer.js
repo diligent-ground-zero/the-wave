@@ -12,22 +12,39 @@ const pauseIcon = document.querySelector('.pause-img')
 
 const songs = [
   {
-    name: 'song 1',
-    fileName: 'captain_zero.mp3',
+    name: 'Luminous Dream',
+    fileName: 'Vibe 01 - Luminous Dream.mp3',
   },
   {
-    name: 'song 2',
-    fileName: 'remember_when.mp3',
+    name: 'You Color Me In',
+    fileName: 'Vibe 02 - You Color Me In.mp3',
   },
   {
-    name: 'song 3',
-    fileName: 'temple_of_the_moon.mp3',
+    name: 'Have It Your Way',
+    fileName: 'Vibe 03 - Have It Your Way.mp3',
+  },
+  {
+    name: 'Best Secret',
+    fileName: 'Vibe 04 - BestSecret.mp3',
+  },
+  {
+    name: 'The Sound of Bowmore',
+    fileName: 'Vibe 05 - The Sound of Bowmore.mp3',
   },
 ]
 
 function initMusicPlayer() {
   const cdnPrefix =
     'https://cdn.jsdelivr.net/gh/diligent-ground-zero/the-wave@main/music/'
+
+  songs.forEach((song) => {
+    var link = document.createElement('link')
+    link.href = cdnPrefix + song.fileName
+    link.as = 'audio'
+    link.rel = 'preload'
+    document.head.appendChild(link)
+  })
+
   let songIndex = 1
   const initialSong = songs[songIndex]
 

@@ -1,5 +1,4 @@
 import initMusicPlayer from './player/musicPlayer'
-import './styles/style.css'
 
 document.addEventListener('DOMContentLoaded', () => {
   let audioContext
