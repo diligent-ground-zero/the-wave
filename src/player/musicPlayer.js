@@ -16,26 +16,22 @@ const songs = [
     fileName: 'Vibe 01 - Luminous Dream.mp3',
   },
   {
-    name: 'You Color Me In',
-    fileName: 'Vibe 02 - You Color Me In.mp3',
+    name: 'Fire inside',
+    fileName: 'Vibe 02 - Fire inside.mp3',
   },
   {
     name: 'Have It Your Way',
     fileName: 'Vibe 03 - Have It Your Way.mp3',
   },
   {
-    name: 'Best Secret',
-    fileName: 'Vibe 04 - BestSecret.mp3',
-  },
-  {
-    name: 'The Sound of Bowmore',
-    fileName: 'Vibe 05 - The Sound of Bowmore.mp3',
+    name: 'You Color Me In',
+    fileName: 'Vibe 04 - You Color Me In.mp3',
   },
 ]
 
 function initMusicPlayer() {
   const cdnPrefix =
-    'https://cdn.jsdelivr.net/gh/diligent-ground-zero/the-wave@main/music/'
+    'https://cdn.jsdelivr.net/gh/diligent-ground-zero/the-wave@1.6/music/'
 
   songs.forEach((song) => {
     var link = document.createElement('link')
