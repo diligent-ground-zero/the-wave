@@ -31,7 +31,7 @@ const songs = [
 
 function initMusicPlayer() {
   const cdnPrefix =
-    'https://cdn.jsdelivr.net/gh/diligent-ground-zero/the-wave@1.6/music/'
+    'https://cdn.jsdelivr.net/gh/diligent-ground-zero/the-wave@1.7/music/'
 
   songs.forEach((song) => {
     var link = document.createElement('link')
@@ -41,7 +41,7 @@ function initMusicPlayer() {
     document.head.appendChild(link)
   })
 
-  let songIndex = 1
+  let songIndex = 0
   const initialSong = songs[songIndex]
 
   if (!title || !audio) return
