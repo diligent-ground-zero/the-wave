@@ -12,7 +12,7 @@ const pauseIcon = document.querySelector('.pause-img')
 
 const songs = [
   {
-    name: 'Have It Your Way',
+    name: 'Luminous Dream',
     fileName: 'Vibe 01 - Have It Your Way.mp3',
   },
   {
@@ -20,7 +20,7 @@ const songs = [
     fileName: 'Vibe 02 - Fire inside.mp3',
   },
   {
-    name: 'Luminous Dream',
+    name: 'Have It Your Way',
     fileName: 'Vibe 03 - Luminous Dream.mp3',
   },
   {
@@ -31,7 +31,7 @@ const songs = [
 
 function initMusicPlayer() {
   const cdnPrefix =
-    'https://cdn.jsdelivr.net/gh/diligent-ground-zero/the-wave@1.9/music/'
+    'https://cdn.jsdelivr.net/gh/diligent-ground-zero/the-wave@2.0/music/'
 
   songs.forEach((song) => {
     var link = document.createElement('link')
