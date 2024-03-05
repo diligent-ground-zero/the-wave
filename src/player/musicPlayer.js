@@ -31,7 +31,7 @@ const songs = [
 
 function initMusicPlayer() {
   const cdnPrefix =
-    'https://cdn.jsdelivr.net/gh/diligent-ground-zero/the-wave@1.7/music/'
+    'https://cdn.jsdelivr.net/gh/diligent-ground-zero/the-wave@1.9/music/'
 
   songs.forEach((song) => {
     var link = document.createElement('link')
