@@ -12,16 +12,16 @@ const pauseIcon = document.querySelector('.pause-img')
 
 const songs = [
   {
-    name: 'Luminous Dream',
-    fileName: 'Vibe 01 - Luminous Dream.mp3',
+    name: 'Have It Your Way',
+    fileName: 'Vibe 01 - Have It Your Way.mp3',
   },
   {
     name: 'Fire inside',
     fileName: 'Vibe 02 - Fire inside.mp3',
   },
   {
-    name: 'Have It Your Way',
-    fileName: 'Vibe 03 - Have It Your Way.mp3',
+    name: 'Luminous Dream',
+    fileName: 'Vibe 03 - Luminous Dream.mp3',
   },
   {
     name: 'You Color Me In',
