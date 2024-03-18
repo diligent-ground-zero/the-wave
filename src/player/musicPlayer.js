@@ -16,7 +16,7 @@ const songs = [
     fileName: 'Vibe 01 - Have It Your Way.mp3',
   },
   {
-    name: 'Fire inside',
+    name: 'Fire Inside',
     fileName: 'Vibe 02 - Fire inside.mp3',
   },
   {
