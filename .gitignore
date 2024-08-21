@@ -5,3 +5,4 @@ dist-ssr
 .env
 .eslintcache
 yarn-error.log
+.idea

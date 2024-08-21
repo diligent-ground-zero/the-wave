@@ -1,3 +1,4 @@
+import initAboutUs from './about-us/aboutUs'
 import initMusicPlayer from './player/musicPlayer'
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,4 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.removeEventListener('click', interactionListener)
   }
   document.body.addEventListener('click', interactionListener)
+
+  initAboutUs()
 })
