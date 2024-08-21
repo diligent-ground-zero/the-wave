@@ -1,3 +1,5 @@
+import '../../styles/aboutUs.css'
+
 const leftImageContainer = document.getElementById('image_left')
 const rightImageContainer = document.getElementById('image_right')
 const textContainer = document.getElementById('paragraph_text')
@@ -36,10 +38,38 @@ const elements = [
 ]
 
 function initAboutUs() {
+  function initSetup() {
+    leftImageContainer.src = elements[0].leftImage
+    rightImageContainer.src = elements[0].rightImage
+    textContainer.innerText = elements[0].text
+
+    leftImageContainer.classList.add('content')
+    rightImageContainer.classList.add('content')
+    textContainer.classList.add('content')
+  }
+
   function setContent(index) {
-    leftImageContainer.src = elements[index].leftImage
-    rightImageContainer.src = elements[index].rightImage
-    textContainer.innerText = elements[index].text
+    leftImageContainer.classList.add('fade-out')
+    rightImageContainer.classList.add('fade-out')
+    textContainer.classList.add('fade-out')
+
+    setTimeout(() => {
+      leftImageContainer.src = elements[index].leftImage
+      rightImageContainer.src = elements[index].rightImage
+      textContainer.innerText = elements[index].text
+
+      leftImageContainer.classList.remove('fade-out')
+      rightImageContainer.classList.remove('fade-out')
+      textContainer.classList.remove('fade-out')
+
+      leftImageContainer.classList.add('fade-in')
+      rightImageContainer.classList.add('fade-in')
+      textContainer.classList.add('fade-in')
+    }, 500)
+
+    leftImageContainer.classList.remove('fade-in')
+    rightImageContainer.classList.remove('fade-in')
+    textContainer.classList.remove('fade-in')
   }
 
   // position in array
@@ -60,7 +90,7 @@ function initAboutUs() {
   }
 
   // initial setup
-  setContent(0)
+  initSetup()
 
   leftButton.addEventListener('click', prevElement)
   rightButton.addEventListener('click', nextElement)
