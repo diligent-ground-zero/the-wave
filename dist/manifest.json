@@ -1,7 +1,7 @@
 {
-  "src/main.js": {
+  "src/scripts/main.js": {
     "file": "main.js",
-    "src": "src/main.js",
+    "src": "src/scripts/main.js",
     "isEntry": true
   }
 }
