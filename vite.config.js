@@ -15,17 +15,11 @@ export default defineConfig({
   build: {
     minify: true,
     manifest: true,
+    assetsDir: '',
     rollupOptions: {
       input: './src/scripts/main.js',
-      output: {
-        format: 'cjs',
-        entryFileNames: 'main.js',
-        esModule: false,
-        compact: true,
-        globals: {
-          jquery: '$',
-        },
-      },
+      output: {},
+      preserveEntrySignatures: 'exports-only',
       external: ['jquery'],
     },
   },
