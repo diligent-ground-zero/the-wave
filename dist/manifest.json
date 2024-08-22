@@ -1,6 +1,6 @@
 {
   "src/scripts/main.js": {
-    "file": "main.js",
+    "file": "assets/main.9dc70080.js",
     "src": "src/scripts/main.js",
     "isEntry": true,
     "dynamicImports": [
@@ -8,7 +8,7 @@
     ]
   },
   "src/scripts/about-us/aboutUs.js": {
-    "file": "assets/aboutUs.6b493483.js",
+    "file": "assets/aboutUs.03f9bbcd.js",
     "src": "src/scripts/about-us/aboutUs.js",
     "isDynamicEntry": true,
     "css": [

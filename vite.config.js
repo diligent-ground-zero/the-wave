@@ -18,12 +18,12 @@ export default defineConfig({
     rollupOptions: {
       input: './src/scripts/main.js',
       output: {
-        format: 'esm',
+        /*format: 'esm',
         entryFileNames: 'main.js',
         compact: true,
         globals: {
           jquery: '$',
-        },
+        },*/
       },
       external: ['jquery'],
     },
