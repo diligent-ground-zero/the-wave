@@ -20,7 +20,6 @@ export default defineConfig({
       output: {
         format: 'esm',
         entryFileNames: 'main.js',
-        esModule: false,
         compact: true,
         globals: {
           jquery: '$',
