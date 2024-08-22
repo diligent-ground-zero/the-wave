@@ -2,6 +2,17 @@
   "src/scripts/main.js": {
     "file": "main.js",
     "src": "src/scripts/main.js",
-    "isEntry": true
+    "isEntry": true,
+    "dynamicImports": [
+      "src/scripts/about-us/aboutUs.js"
+    ]
+  },
+  "src/scripts/about-us/aboutUs.js": {
+    "file": "assets/aboutUs.6b493483.js",
+    "src": "src/scripts/about-us/aboutUs.js",
+    "isDynamicEntry": true,
+    "css": [
+      "assets/aboutUs.932a8c02.css"
+    ]
   }
 }

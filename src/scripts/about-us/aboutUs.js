@@ -37,39 +37,43 @@ const elements = [
   },
 ]
 
-function initAboutUs() {
+export const initAboutUs = () => {
   function initSetup() {
-    leftImageContainer.src = elements[0].leftImage
-    rightImageContainer.src = elements[0].rightImage
-    textContainer.innerText = elements[0].text
+    if (leftImageContainer && rightImageContainer && textContainer) {
+      leftImageContainer.src = elements[0].leftImage
+      rightImageContainer.src = elements[0].rightImage
+      textContainer.innerText = elements[0].text
 
-    leftImageContainer.classList.add('content')
-    rightImageContainer.classList.add('content')
-    textContainer.classList.add('content')
+      leftImageContainer.classList.add('content')
+      rightImageContainer.classList.add('content')
+      textContainer.classList.add('content')
+    }
   }
 
   function setContent(index) {
-    leftImageContainer.classList.add('fade-out')
-    rightImageContainer.classList.add('fade-out')
-    textContainer.classList.add('fade-out')
+    if (leftImageContainer && rightImageContainer && textContainer) {
+      leftImageContainer.classList.add('fade-out')
+      rightImageContainer.classList.add('fade-out')
+      textContainer.classList.add('fade-out')
 
-    setTimeout(() => {
-      leftImageContainer.src = elements[index].leftImage
-      rightImageContainer.src = elements[index].rightImage
-      textContainer.innerText = elements[index].text
+      setTimeout(() => {
+        leftImageContainer.src = elements[index].leftImage
+        rightImageContainer.src = elements[index].rightImage
+        textContainer.innerText = elements[index].text
 
-      leftImageContainer.classList.remove('fade-out')
-      rightImageContainer.classList.remove('fade-out')
-      textContainer.classList.remove('fade-out')
+        leftImageContainer.classList.remove('fade-out')
+        rightImageContainer.classList.remove('fade-out')
+        textContainer.classList.remove('fade-out')
 
-      leftImageContainer.classList.add('fade-in')
-      rightImageContainer.classList.add('fade-in')
-      textContainer.classList.add('fade-in')
-    }, 500)
+        leftImageContainer.classList.add('fade-in')
+        rightImageContainer.classList.add('fade-in')
+        textContainer.classList.add('fade-in')
+      }, 500)
 
-    leftImageContainer.classList.remove('fade-in')
-    rightImageContainer.classList.remove('fade-in')
-    textContainer.classList.remove('fade-in')
+      leftImageContainer.classList.remove('fade-in')
+      rightImageContainer.classList.remove('fade-in')
+      textContainer.classList.remove('fade-in')
+    }
   }
 
   // position in array
@@ -95,5 +99,3 @@ function initAboutUs() {
   leftButton.addEventListener('click', prevElement)
   rightButton.addEventListener('click', nextElement)
 }
-
-export default initAboutUs

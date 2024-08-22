@@ -1,4 +1,3 @@
-import initAboutUs from './about-us/aboutUs'
 import initMusicPlayer from './player/musicPlayer'
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -23,5 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   document.body.addEventListener('click', interactionListener)
 
-  initAboutUs()
+  if (window.location.pathname === '/uber-uns-copy') {
+    import('./about-us/aboutUs').then((module) => {
+      module.initAboutUs()
+    })
+  }
 })
