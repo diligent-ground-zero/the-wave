@@ -10,3 +10,11 @@
 .fade-in {
     opacity: 1;
 }
+
+.left-arrow {
+    rotate: 90deg;
+}
+
+.right-arrow {
+    rotate: 270deg;
+}

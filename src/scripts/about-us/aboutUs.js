@@ -4,102 +4,148 @@ document.addEventListener('DOMContentLoaded', () => {
   initAboutUs()
 })
 
-const leftImageContainer = document.getElementById('image_left')
-const rightImageContainer = document.getElementById('image_right')
+const selectorContainer = document.getElementById('selector_container')
 const textContainer = document.getElementById('paragraph_text')
-const leftButton = document.getElementById('left_arrow')
-const rightButton = document.getElementById('right_arrow')
+const upArrowButton = Array.from(document.getElementsByClassName('up_arrow'))
+const downArrowButton = Array.from(
+  document.getElementsByClassName('down_arrow')
+)
+
+const leftArrow = document.createElement('img')
+leftArrow.src =
+  'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/66c7286ea8dc074851181ba1_Union.svg'
+leftArrow.classList.add('left-arrow')
+
+const rightArrow = document.createElement('img')
+rightArrow.src =
+  'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/66c7286ea8dc074851181ba1_Union.svg'
+rightArrow.classList.add('right-arrow')
 
 const elements = [
   {
-    leftImage:
-      'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/66c5c756f12558cb20dfcb07_64fef455bfe03703b2ad0d0f_Nicht%20benannt-2-p-500.png',
-    rightImage:
-      'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/65e615db97765971f48ab7e2_vibe_favicon_apple.png',
-    text: 'TEXT NUMBER 1 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
+    title: 'WHY THE VIBE?',
+    paragraphText:
+      'WE THINK OUR WORK IS ALL ABOUT THE VIBE, ABOUT THAT DIRECT AND INNER INSTINCT, ABOUT THAT FEELING OF CONNECTION. THE VIBE LEADS US, IN RELATIONS AND IN BUSINESS. AND THAT‘S WHAT’S IMPORTANT.\n' +
+      'YOU CHOOSE US AND WE CHOOSE YOU: IF WE WORK TOGETHER, VIBE IS MUSIC, SOUND AND VOICE-OVERS. IT IS FOR TV-COMMERCIALS and MOTION PICTURES. IT IS FOR YOU. TO CREATE THE BEST VIBES POSSIBLE, WE WORK WITH MORE THAN 50 INTERNATIONALLY RENOWNED COMPOSERS, AUDIO ENGINEERS & SUPERVISORS. OUR VIBES FOR YOU: MUSIC CONCEPTION & SUPERVISION, MUSIC COMPOSITION, SOUND DESIGN, VOICE-OVER (CASTING, RECORDING), MIXING (ALL FORMATS AVAILABLE).',
   },
   {
-    leftImage:
-      'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/65b6308d3061e1aff322dd72_Paulaner_Logo_SW_AF%20(1).svg',
-    rightImage:
-      'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/651d58d0d7edb352cdd6ce98_05%20Paulaner_(Brauerei)_logo.svg',
-    text: 'TEXT NUMBER 2 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
+    title: 'WHO THE VIBE?',
+    paragraphText:
+      'TEXT NUMBER 2 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
   },
   {
-    leftImage:
-      'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/65b630c080c184325af3c61b_BK_LOGO_PRIMARY_%C2%AE_ST_CRUNCHY_WHITE_PMS_C%20(2).svg',
-    rightImage:
-      'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/651d5b65052c9ce0b8b7678b_BK_LOGO_PRIMARY_BACKGROUND_%E2%94%AC%C2%AB_ST_RGB.png',
-    text: 'TEXT NUMBER 3 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
+    title: 'WHAT THE VIBE?',
+    paragraphText:
+      'TEXT NUMBER 3 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
   },
   {
-    leftImage:
-      'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/654a468bc21c82a3253311b4_01%20dl-telekom-logo-02.png',
-    rightImage:
-      'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/651d5a9086296e439a807aba_Nicht%20benannt%20(2).png',
-    text: 'TEXT NUMBER 4 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
+    title: 'WHERE THE VIBE?',
+    paragraphText:
+      'TEXT NUMBER 4 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
   },
 ]
 
 export const initAboutUs = () => {
-  function initSetup() {
-    if (leftImageContainer && rightImageContainer && textContainer) {
-      leftImageContainer.src = elements[0].leftImage
-      rightImageContainer.src = elements[0].rightImage
-      textContainer.innerText = elements[0].text
+  function addArrows(element) {
+    element.prepend(leftArrow)
+    element.appendChild(rightArrow)
+  }
 
-      leftImageContainer.classList.add('content')
-      rightImageContainer.classList.add('content')
+  function removeArrows(element) {
+    const leftArrow = element.querySelector('.left-arrow')
+    const rightArrow = element.querySelector('.right-arrow')
+
+    if (leftArrow) leftArrow.remove()
+    if (rightArrow) rightArrow.remove()
+  }
+
+  function initSetup() {
+    // set up all titles in selector container
+    if (selectorContainer) {
+      elements.forEach((element, index) => {
+        const titleElement = document.createElement('div')
+        titleElement.innerText = element.title
+        titleElement.classList.add('selector_text_wrapper')
+
+        if (index === currentSelectedIndex) {
+          titleElement.classList.add('selected_text_wrapper')
+          addArrows(titleElement)
+        }
+
+        titleElement.addEventListener('click', () => {
+          setSelectedTitle(index)
+          setContent(index)
+        })
+
+        selectorContainer.appendChild(titleElement)
+      })
+    }
+
+    // set up initial elements
+    if (textContainer) {
+      textContainer.innerText = elements[0].paragraphText
       textContainer.classList.add('content')
     }
   }
 
+  function setSelectedTitle(index) {
+    const titleElements = Array.from(
+      selectorContainer.getElementsByClassName('selector_text_wrapper')
+    )
+
+    titleElements[currentSelectedIndex].classList.remove(
+      'selected_text_wrapper'
+    )
+    removeArrows(titleElements[currentSelectedIndex])
+
+    titleElements[index].classList.add('selected_text_wrapper')
+    addArrows(titleElements[index])
+
+    currentSelectedIndex = index
+  }
+
   function setContent(index) {
-    if (leftImageContainer && rightImageContainer && textContainer) {
-      leftImageContainer.classList.add('fade-out')
-      rightImageContainer.classList.add('fade-out')
+    if (textContainer) {
       textContainer.classList.add('fade-out')
 
       setTimeout(() => {
-        leftImageContainer.src = elements[index].leftImage
-        rightImageContainer.src = elements[index].rightImage
-        textContainer.innerText = elements[index].text
+        textContainer.innerText = elements[index].paragraphText
 
-        leftImageContainer.classList.remove('fade-out')
-        rightImageContainer.classList.remove('fade-out')
         textContainer.classList.remove('fade-out')
-
-        leftImageContainer.classList.add('fade-in')
-        rightImageContainer.classList.add('fade-in')
         textContainer.classList.add('fade-in')
       }, 500)
 
-      leftImageContainer.classList.remove('fade-in')
-      rightImageContainer.classList.remove('fade-in')
       textContainer.classList.remove('fade-in')
     }
   }
 
-  // position in array
-  let counter = 0
-
   function nextElement() {
-    if (counter === 3) counter = 0
-    else counter++
+    if (index === 3) index = 0
+    else index++
 
-    setContent(counter)
+    setSelectedTitle(index)
+    setContent(index)
   }
 
   function prevElement() {
-    if (counter === 0) counter = 3
-    else counter--
+    if (index === 0) index = 3
+    else index--
 
-    setContent(counter)
+    setSelectedTitle(index)
+    setContent(index)
   }
+
+  // currently selected title
+  let currentSelectedIndex = 0
+  let index = 0
 
   // initial setup
   initSetup()
 
-  leftButton.addEventListener('click', prevElement)
-  rightButton.addEventListener('click', nextElement)
+  upArrowButton.forEach((element) => {
+    element.addEventListener('click', prevElement)
+  })
+  downArrowButton.forEach((element) => {
+    element.addEventListener('click', nextElement)
+  })
 }
