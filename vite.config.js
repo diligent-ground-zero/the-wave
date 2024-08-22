@@ -24,9 +24,6 @@ export default defineConfig({
       output: {
         format: 'esm',
         entryFileNames: '[name].js',
-        chunkFileNames: 'chunks/[name].js',
-        assetFileNames: 'assets/[name][extname]',
-        esModule: false,
         compact: true,
         globals: {
           jquery: '$',
