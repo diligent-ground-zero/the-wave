@@ -7,9 +7,6 @@
   "src/scripts/about-us/aboutUs.js": {
     "file": "aboutUs.js",
     "src": "src/scripts/about-us/aboutUs.js",
-    "isEntry": true,
-    "css": [
-      "assets/aboutUs.932a8c02.css"
-    ]
+    "isEntry": true
   }
 }

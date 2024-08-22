@@ -15,6 +15,7 @@ export default defineConfig({
   build: {
     minify: true,
     manifest: true,
+    cssCodeSplit: false,
     rollupOptions: {
       input: {
         main: './src/scripts/main.js',
@@ -23,6 +24,8 @@ export default defineConfig({
       output: {
         format: 'esm',
         entryFileNames: '[name].js',
+        chunkFileNames: 'chunks/[name].js',
+        assetFileNames: 'assets/[name][extname]',
         esModule: false,
         compact: true,
         globals: {
