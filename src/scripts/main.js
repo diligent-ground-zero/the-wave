@@ -21,10 +21,4 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.removeEventListener('click', interactionListener)
   }
   document.body.addEventListener('click', interactionListener)
-
-  if (window.location.pathname === '/uber-uns-copy') {
-    import('./about-us/aboutUs').then((module) => {
-      module.initAboutUs()
-    })
-  }
 })

@@ -1,5 +1,9 @@
 import '../../styles/aboutUs.css'
 
+document.addEventListener('DOMContentLoaded', () => {
+  initAboutUs()
+})
+
 const leftImageContainer = document.getElementById('image_left')
 const rightImageContainer = document.getElementById('image_right')
 const textContainer = document.getElementById('paragraph_text')
