@@ -1,30 +1,31 @@
 import '../../styles/aboutUs.css'
 
+let isDesktopInitialized = false
+let isMobileInitialized = false
+
 document.addEventListener('DOMContentLoaded', () => {
-  initAboutUs()
+  const isMobile = window.matchMedia('(max-width: 990px)').matches
+
+  if (isMobile) {
+    initAboutUsMobile()
+  } else {
+    initAboutUsDesktop()
+  }
+
+  window.addEventListener('resize', () => {
+    const isMobile = window.matchMedia('(max-width: 990px)').matches
+
+    if (isMobile) {
+      if (!isMobileInitialized) {
+        initAboutUsMobile()
+      }
+    } else {
+      if (!isDesktopInitialized) {
+        initAboutUsDesktop()
+      }
+    }
+  })
 })
-
-const leftImageBorder = document.getElementById('left_image_border')
-const rightImageBorder = document.getElementById('right_image_border')
-const leftImage = document.getElementById('left_image')
-const rightImage = document.getElementById('right_image')
-
-const selectorContainer = document.getElementById('selector_container')
-const textContainer = document.getElementById('paragraph_text')
-
-const upArrowButton = Array.from(document.getElementsByClassName('up_arrow'))
-const downArrowButton = Array.from(
-  document.getElementsByClassName('down_arrow')
-)
-const leftArrow = document.createElement('img')
-leftArrow.src =
-  'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/66c7286ea8dc074851181ba1_Union.svg'
-leftArrow.classList.add('left-arrow')
-
-const rightArrow = document.createElement('img')
-rightArrow.src =
-  'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/66c7286ea8dc074851181ba1_Union.svg'
-rightArrow.classList.add('right-arrow')
 
 const elements = [
   {
@@ -74,7 +75,28 @@ const elements = [
   },
 ]
 
-export const initAboutUs = () => {
+export const initAboutUsDesktop = () => {
+  isDesktopInitialized = true
+
+  const leftImageBorder = document.getElementById('left_image_border')
+  const rightImageBorder = document.getElementById('right_image_border')
+  const leftImage = document.getElementById('left_image')
+  const rightImage = document.getElementById('right_image')
+  const selectorContainer = document.getElementById('selector_container')
+  const textContainer = document.getElementById('paragraph_text')
+  const upArrowButton = Array.from(document.getElementsByClassName('up_arrow'))
+  const downArrowButton = Array.from(
+    document.getElementsByClassName('down_arrow')
+  )
+  const leftArrow = document.createElement('img')
+  leftArrow.src =
+    'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/66c7286ea8dc074851181ba1_Union.svg'
+  leftArrow.classList.add('left-arrow')
+  const rightArrow = document.createElement('img')
+  rightArrow.src =
+    'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/66c7286ea8dc074851181ba1_Union.svg'
+  rightArrow.classList.add('right-arrow')
+
   function addArrows(element) {
     element.prepend(leftArrow)
     element.appendChild(rightArrow)
@@ -212,4 +234,73 @@ export const initAboutUs = () => {
   downArrowButton.forEach((element) => {
     element.addEventListener('click', nextElement)
   })
+}
+
+export const initAboutUsMobile = () => {
+  isMobileInitialized = true
+
+  const leftArrow = document.getElementById('mobile_left_arrow')
+  const rightArrow = document.getElementById('mobile_right_arrow')
+  const title = document.getElementById('mobile_selector_text')
+  const image = document.getElementById('mobile_image')
+  const paragraphText = document.getElementById('mobile_paragraph')
+
+  function initMobileSetup() {
+    if (title && image && paragraphText) {
+      title.innerText = elements[0].title
+      paragraphText.innerText = elements[0].paragraphText
+      image.src = elements[0].leftImage
+
+      title.classList.add('content')
+      paragraphText.classList.add('content')
+      image.classList.add('content')
+    }
+  }
+
+  function setMobileContent(index) {
+    if (title && image && paragraphText) {
+      title.classList.add('fade-out')
+      paragraphText.classList.add('fade-out')
+      image.classList.add('fade-out')
+
+      setTimeout(() => {
+        title.innerText = elements[index].title
+        paragraphText.innerText = elements[index].paragraphText
+        image.src = elements[index].leftImage
+
+        title.classList.remove('fade-out')
+        paragraphText.classList.remove('fade-out')
+        image.classList.remove('fade-out')
+
+        title.classList.add('fade-in')
+        paragraphText.classList.add('fade-in')
+        image.classList.add('fade-in')
+      }, 500)
+
+      title.classList.remove('fade-in')
+      paragraphText.classList.remove('fade-in')
+      image.classList.remove('fade-in')
+    }
+  }
+
+  let index = 0
+
+  function nextElement() {
+    if (index === 3) index = 0
+    else index++
+
+    setMobileContent(index)
+  }
+
+  function prevElement() {
+    if (index === 0) index = 3
+    else index--
+
+    setMobileContent(index)
+  }
+
+  initMobileSetup()
+
+  leftArrow.addEventListener('click', prevElement)
+  rightArrow.addEventListener('click', nextElement)
 }
