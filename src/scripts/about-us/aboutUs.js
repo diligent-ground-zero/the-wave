@@ -4,7 +4,7 @@ let isDesktopInitialized = false
 let isMobileInitialized = false
 
 document.addEventListener('DOMContentLoaded', () => {
-  const isMobile = window.matchMedia('(max-width: 990px)').matches
+  const isMobile = window.innerWidth < 990
 
   if (isMobile) {
     initAboutUsMobile()
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.addEventListener('resize', () => {
-    const isMobile = window.matchMedia('(max-width: 990px)').matches
+    const isMobile = window.innerWidth < 990
 
     if (isMobile) {
       if (!isMobileInitialized) {
