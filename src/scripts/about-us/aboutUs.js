@@ -6,9 +6,10 @@ let isMobileInitialized = false
 const elements = [
   {
     title: 'WHY THE VIBE?',
-    paragraphText:
-      'WE THINK OUR WORK IS ALL ABOUT THE VIBE, ABOUT THAT DIRECT AND INNER INSTINCT, ABOUT THAT FEELING OF CONNECTION. THE VIBE LEADS US, IN RELATIONS AND IN BUSINESS. AND THAT‘S WHAT’S IMPORTANT.\n' +
-      'YOU CHOOSE US AND WE CHOOSE YOU: IF WE WORK TOGETHER, VIBE IS MUSIC, SOUND AND VOICE-OVERS. IT IS FOR TV-COMMERCIALS and MOTION PICTURES. IT IS FOR YOU. TO CREATE THE BEST VIBES POSSIBLE, WE WORK WITH MORE THAN 50 INTERNATIONALLY RENOWNED COMPOSERS, AUDIO ENGINEERS & SUPERVISORS. OUR VIBES FOR YOU: MUSIC CONCEPTION & SUPERVISION, MUSIC COMPOSITION, SOUND DESIGN, VOICE-OVER (CASTING, RECORDING), MIXING (ALL FORMATS AVAILABLE).',
+    paragraphText: `WE THINK OUR WORK IS ALL ABOUT THE VIBE, ABOUT THAT DIRECT AND INNER INSTINCT, ABOUT THAT FEELING OF CONNECTION.
+THE VIBE LEADS US, IN RELATIONS AND IN BUSINESS. AND THAT'S WHAT'S IMPORTANT.
+WE WORK WITH MORE THAN 50 INTERNATIONALLY RENOWNED COMPOSERS, AUDIO ENGINEERS & SUPERVISORS.
+OUR VIBES FOR YOU: MUSIC CONCEPTION & SUPERVISION, MUSIC COMPOSITION, SOUND DESIGN, VOICE-OVER, MIXING (ALL FORMATS AVAILABLE).`,
     leftBorder: '#11B1FF',
     leftImage:
       'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/64f0cf64d065ec0e03a05fcf_64b0f78718f9c21036a0549d_DSCF2880.jpeg',
@@ -17,20 +18,9 @@ const elements = [
       'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/64f0cec2663f1a2774a16651_Copyright_by_David_Dollmann_IMG_3294%20copy%20(1)%20Mittel.jpeg',
   },
   {
-    title: 'WHO THE VIBE?',
-    paragraphText:
-      'TEXT NUMBER 2 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
-    leftBorder: '#FFF500',
-    leftImage:
-      'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/64f0cec2755db5cc25df2798_DSCF2934%20Mittel.jpeg',
-    rightBorder: '#0F008C',
-    rightImage:
-      'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/64f0cec23ff991f4d3d0a394__C7A3263%20Mittel.jpeg',
-  },
-  {
     title: 'WHAT THE VIBE?',
-    paragraphText:
-      'TEXT NUMBER 3 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
+    paragraphText: `WE LOVE A CHALLENGE, WHETHER IT BE SEEKING OUT A ONE-HIT WONDER FROM 1994, REPLACING AN UNAVAILABLE TRACK THAT EVERYONE HAS "MOOD LOVE" FOR, OR TURNING A TIGHT BUDGET INTO A MEMORABLE JINGLE.
+WE DO IT ALL, WE TAKE PRIDE IN OUR WORK WHILE ALWAYS RESPECTING THE PROCESS.`,
     leftBorder: '#0F008C',
     leftImage:
       'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/64f0cec1909714f98f17bd94_DSCF2904%20Mittel.jpeg',
@@ -40,8 +30,10 @@ const elements = [
   },
   {
     title: 'WHERE THE VIBE?',
-    paragraphText:
-      'TEXT NUMBER 4 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
+    paragraphText: `OUR CREATIVE SPACE AND STUDIO ARE RIGHT IN THE HEART OF HAMBURG, HOFWEG 9.
+BUT: VIBE IS MANDATORY, LOCATION IS SECONDARY. WE'RE HAPPY TO HAVE ACCESS TO MULTIPLE CREATIVE SPACES IN HAMBURG, BERLIN AND MUNICH.
+OUR CREATIVES ARE BASED IN GERMANY, ITALY, PORTUGAL, UK, BRAZIL, THE NORDICS AND THE U.S, WHICH GIVES US AN ADVANTAGE WHEN WORKING WITH TIGHT DEADLINES (6-9 HOURS TIME DIFFERENCE IS EAAASY).
+OR AS KID CUDI ONCE SAID: DAY'N'NITE.`,
     leftBorder: '#FF0082',
     leftImage:
       'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/64f07b5bfe4b3cbdb047d87e_ezgif.com-gif-maker.gif',
@@ -206,17 +198,13 @@ export const initAboutUsDesktop = () => {
   }
 
   function nextElement() {
-    if (index === 3) index = 0
-    else index++
-
+    index = (index + 1) % elements.length
     setSelectedTitle(index)
     setContent(index)
   }
 
   function prevElement() {
-    if (index === 0) index = 3
-    else index--
-
+    index = (index - 1 + elements.length) % elements.length
     setSelectedTitle(index)
     setContent(index)
   }
@@ -286,16 +274,12 @@ export const initAboutUsMobile = () => {
   let index = 0
 
   function nextElement() {
-    if (index === 3) index = 0
-    else index++
-
+    index = (index + 1) % elements.length
     setMobileContent(index)
   }
 
   function prevElement() {
-    if (index === 0) index = 3
-    else index--
-
+    index = (index - 1 + elements.length) % elements.length
     setMobileContent(index)
   }
 

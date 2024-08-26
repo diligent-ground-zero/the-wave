@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import eslintPlugin from 'vite-plugin-eslint'
+import { resolve } from 'path'
 
 // vite.config.js
 export default defineConfig({
@@ -32,4 +33,5 @@ export default defineConfig({
       external: ['jquery'],
     },
   },
+  publicDir: 'assets', // This will copy the contents of the 'assets' folder to 'dist'
 })
