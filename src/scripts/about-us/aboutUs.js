@@ -3,30 +3,6 @@ import '../../styles/aboutUs.css'
 let isDesktopInitialized = false
 let isMobileInitialized = false
 
-document.addEventListener('DOMContentLoaded', () => {
-  const isMobile = window.innerWidth < 990
-
-  if (isMobile) {
-    initAboutUsMobile()
-  } else {
-    initAboutUsDesktop()
-  }
-
-  window.addEventListener('resize', () => {
-    const isMobile = window.innerWidth < 990
-
-    if (isMobile) {
-      if (!isMobileInitialized) {
-        initAboutUsMobile()
-      }
-    } else {
-      if (!isDesktopInitialized) {
-        initAboutUsDesktop()
-      }
-    }
-  })
-})
-
 const elements = [
   {
     title: 'WHY THE VIBE?',
@@ -74,6 +50,30 @@ const elements = [
       'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/64f0cf64d065ec0e03a05fcf_64b0f78718f9c21036a0549d_DSCF2880.jpeg',
   },
 ]
+
+export const setupAboutUs = () => {
+  const isMobile = window.innerWidth < 990
+
+  if (isMobile) {
+    initAboutUsMobile()
+  } else {
+    initAboutUsDesktop()
+  }
+
+  window.addEventListener('resize', () => {
+    const isMobile = window.innerWidth < 990
+
+    if (isMobile) {
+      if (!isMobileInitialized) {
+        initAboutUsMobile()
+      }
+    } else {
+      if (!isDesktopInitialized) {
+        initAboutUsDesktop()
+      }
+    }
+  })
+}
 
 export const initAboutUsDesktop = () => {
   isDesktopInitialized = true

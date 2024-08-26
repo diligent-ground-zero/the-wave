@@ -2,7 +2,10 @@
   "src/scripts/main.js": {
     "file": "main.js",
     "src": "src/scripts/main.js",
-    "isEntry": true
+    "isEntry": true,
+    "imports": [
+      "src/scripts/about-us/aboutUs.js"
+    ]
   },
   "src/scripts/about-us/aboutUs.js": {
     "file": "aboutUs.js",
