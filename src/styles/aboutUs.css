@@ -5,11 +5,13 @@
 
 .fade-out {
     opacity: 0;
-}
-
-.fade-in {
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .fade-in {
     opacity: 1;
-}
+    transition: opacity 0.5s ease-in-out;
+  }
 
 .left-arrow {
     rotate: 90deg;

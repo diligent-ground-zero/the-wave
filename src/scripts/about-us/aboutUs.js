@@ -5,6 +5,16 @@ let isMobileInitialized = false
 
 const elements = [
   {
+    title: 'WHO THE VIBE?',
+    paragraphText: `Anika is a producer and new biz manager. With four years of experience in the music industry, she's been not only writing her own songs but also overseeing projects and generating artistic concepts. Her multifaceted skills make her a driving force in both creative and managerial roles at VIBE.`,
+    leftBorder: '#11B1FF',
+    leftImage:
+      'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/64f0cf64d065ec0e03a05fcf_64b0f78718f9c21036a0549d_DSCF2880.jpeg',
+    rightBorder: '#FF0082',
+    rightImage:
+      'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/64f0cec2663f1a2774a16651_Copyright_by_David_Dollmann_IMG_3294%20copy%20(1)%20Mittel.jpeg',
+  },
+  {
     title: 'WHY THE VIBE?',
     paragraphText: `WE THINK OUR WORK IS ALL ABOUT THE VIBE, ABOUT THAT DIRECT AND INNER INSTINCT, ABOUT THAT FEELING OF CONNECTION.
 THE VIBE LEADS US, IN RELATIONS AND IN BUSINESS. AND THAT'S WHAT'S IMPORTANT.
@@ -70,158 +80,120 @@ export const setupAboutUs = () => {
 export const initAboutUsDesktop = () => {
   isDesktopInitialized = true
 
-  const leftImageBorder = document.getElementById('left_image_border')
-  const rightImageBorder = document.getElementById('right_image_border')
-  const leftImage = document.getElementById('left_image')
-  const rightImage = document.getElementById('right_image')
-  const selectorContainer = document.getElementById('selector_container')
-  const textContainer = document.getElementById('paragraph_text')
-  const upArrowButton = Array.from(document.getElementsByClassName('up_arrow'))
-  const downArrowButton = Array.from(
-    document.getElementsByClassName('down_arrow')
-  )
-  const leftArrow = document.createElement('img')
-  leftArrow.src =
-    'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/66c7286ea8dc074851181ba1_Union.svg'
-  leftArrow.classList.add('left-arrow')
-  const rightArrow = document.createElement('img')
-  rightArrow.src =
-    'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/66c7286ea8dc074851181ba1_Union.svg'
-  rightArrow.classList.add('right-arrow')
+  const DOM = {
+    leftImageBorder: document.getElementById('left_image_border'),
+    rightImageBorder: document.getElementById('right_image_border'),
+    leftImage: document.getElementById('left_image'),
+    rightImage: document.getElementById('right_image'),
+    selectorContainer: document.getElementById('selector_container'),
+    textContainer: document.getElementById('paragraph_text'),
+    upArrowButtons: Array.from(document.getElementsByClassName('up_arrow')),
+    downArrowButtons: Array.from(document.getElementsByClassName('down_arrow')),
+  }
+
+  let currentIndex = 0
+
+  function createArrow(direction) {
+    const arrow = document.createElement('img')
+    arrow.src =
+      'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/66c7286ea8dc074851181ba1_Union.svg'
+    arrow.classList.add(`${direction}-arrow`)
+    return arrow
+  }
 
   function addArrows(element) {
-    element.prepend(leftArrow)
-    element.appendChild(rightArrow)
+    element.prepend(createArrow('left'))
+    element.appendChild(createArrow('right'))
   }
 
   function removeArrows(element) {
-    const leftArrow = element.querySelector('.left-arrow')
-    const rightArrow = element.querySelector('.right-arrow')
+    element.querySelector('.left-arrow')?.remove()
+    element.querySelector('.right-arrow')?.remove()
+  }
 
-    if (leftArrow) leftArrow.remove()
-    if (rightArrow) rightArrow.remove()
+  function updateSelectedTitle(index) {
+    const titleElements = Array.from(
+      DOM.selectorContainer.getElementsByClassName('selector_text_wrapper')
+    )
+    titleElements[currentIndex].classList.remove('selected_text_wrapper')
+    removeArrows(titleElements[currentIndex])
+    titleElements[index].classList.add('selected_text_wrapper')
+    addArrows(titleElements[index])
+    currentIndex = index
+  }
+
+  function updateContent(index) {
+    const { leftBorder, rightBorder, paragraphText, leftImage, rightImage } =
+      elements[index]
+
+    DOM.leftImageBorder.style.color = leftBorder
+    DOM.rightImageBorder.style.color = rightBorder
+    DOM.textContainer.innerText = paragraphText
+
+    DOM.leftImage.src = leftImage
+    DOM.rightImage.src = rightImage
+
+    DOM.leftImage.classList.remove('fade-out')
+    DOM.leftImage.classList.add('fade-in')
+    DOM.rightImage.classList.remove('fade-out')
+    DOM.rightImage.classList.add('fade-in')
+    DOM.textContainer.classList.remove('fade-out')
+    DOM.textContainer.classList.add('fade-in')
+  }
+
+  function transitionContent(index) {
+    DOM.textContainer.classList.add('fade-out')
+    DOM.leftImage.classList.add('fade-out')
+    DOM.rightImage.classList.add('fade-out')
+
+    setTimeout(() => {
+      updateContent(index)
+    }, 500)
+
+    DOM.textContainer.classList.remove('fade-in')
+    DOM.leftImage.classList.remove('fade-in')
+    DOM.rightImage.classList.remove('fade-in')
+  }
+
+  function changeElement(direction) {
+    const newIndex =
+      (currentIndex + direction + elements.length) % elements.length
+    updateSelectedTitle(newIndex)
+    transitionContent(newIndex)
   }
 
   function initSetup() {
-    // set up all titles in selector container
-    if (selectorContainer) {
+    if (DOM.selectorContainer) {
       elements.forEach((element, index) => {
         const titleElement = document.createElement('div')
         titleElement.innerText = element.title
         titleElement.classList.add('selector_text_wrapper')
-
-        if (index === currentSelectedIndex) {
+        if (index === currentIndex) {
           titleElement.classList.add('selected_text_wrapper')
           addArrows(titleElement)
         }
-
         titleElement.addEventListener('click', () => {
-          setSelectedTitle(index)
-          setContent(index)
+          updateSelectedTitle(index)
+          transitionContent(index)
         })
-
-        selectorContainer.appendChild(titleElement)
+        DOM.selectorContainer.appendChild(titleElement)
       })
     }
 
-    // set up initial elements
-    if (
-      textContainer &&
-      leftImageBorder &&
-      rightImageBorder &&
-      leftImage &&
-      rightImage
-    ) {
-      textContainer.innerText = elements[0].paragraphText
-      textContainer.classList.add('content')
-
-      leftImageBorder.style.color = elements[0].leftBorder
-      rightImageBorder.style.color = elements[0].rightBorder
-
-      leftImage.src = elements[0].leftImage
-      rightImage.src = elements[0].rightImage
-
-      leftImage.classList.add('content')
-      rightImage.classList.add('content')
-    }
-  }
-
-  function setSelectedTitle(index) {
-    const titleElements = Array.from(
-      selectorContainer.getElementsByClassName('selector_text_wrapper')
+    updateContent(0)
+    ;[DOM.textContainer, DOM.leftImage, DOM.rightImage].forEach((el) =>
+      el.classList.add('content', 'fade-in')
     )
-
-    titleElements[currentSelectedIndex].classList.remove(
-      'selected_text_wrapper'
-    )
-    removeArrows(titleElements[currentSelectedIndex])
-
-    titleElements[index].classList.add('selected_text_wrapper')
-    addArrows(titleElements[index])
-
-    currentSelectedIndex = index
   }
 
-  function setContent(index) {
-    if (
-      textContainer &&
-      leftImageBorder &&
-      rightImageBorder &&
-      leftImage &&
-      rightImage
-    ) {
-      leftImageBorder.style.color = elements[index].leftBorder
-      rightImageBorder.style.color = elements[index].rightBorder
-
-      textContainer.classList.add('fade-out')
-      leftImage.classList.add('fade-out')
-      rightImage.classList.add('fade-out')
-
-      setTimeout(() => {
-        textContainer.innerText = elements[index].paragraphText
-        leftImage.src = elements[index].leftImage
-        rightImage.src = elements[index].rightImage
-
-        textContainer.classList.remove('fade-out')
-        leftImage.classList.remove('fade-out')
-        rightImage.classList.remove('fade-out')
-
-        textContainer.classList.add('fade-in')
-        leftImage.classList.add('fade-in')
-        rightImage.classList.add('fade-in')
-      }, 500)
-
-      textContainer.classList.remove('fade-in')
-      leftImage.classList.remove('fade-in')
-      rightImage.classList.remove('fade-in')
-    }
-  }
-
-  function nextElement() {
-    index = (index + 1) % elements.length
-    setSelectedTitle(index)
-    setContent(index)
-  }
-
-  function prevElement() {
-    index = (index - 1 + elements.length) % elements.length
-    setSelectedTitle(index)
-    setContent(index)
-  }
-
-  // currently selected title
-  let currentSelectedIndex = 0
-  let index = 0
-
-  // initial setup
   initSetup()
 
-  upArrowButton.forEach((element) => {
-    element.addEventListener('click', prevElement)
-  })
-  downArrowButton.forEach((element) => {
-    element.addEventListener('click', nextElement)
-  })
+  DOM.upArrowButtons.forEach((button) =>
+    button.addEventListener('click', () => changeElement(-1))
+  )
+  DOM.downArrowButtons.forEach((button) =>
+    button.addEventListener('click', () => changeElement(1))
+  )
 }
 
 export const initAboutUsMobile = () => {
@@ -239,9 +211,9 @@ export const initAboutUsMobile = () => {
       paragraphText.innerText = elements[0].paragraphText
       image.src = elements[0].leftImage
 
-      title.classList.add('content')
-      paragraphText.classList.add('content')
-      image.classList.add('content')
+      title.classList.add('content', 'fade-in')
+      paragraphText.classList.add('content', 'fade-in')
+      image.classList.add('content', 'fade-in')
     }
   }
 
