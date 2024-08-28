@@ -2,14 +2,14 @@ import '../../styles/aboutUs.css'
 
 let isDesktopInitialized = false
 let isMobileInitialized = false
-
+import gsap from 'gsap'
 const elements = [
   {
     title: 'WHO THE VIBE?',
     paragraphText: `Anika is a producer and new biz manager. With four years of experience in the music industry, she's been not only writing her own songs but also overseeing projects and generating artistic concepts. Her multifaceted skills make her a driving force in both creative and managerial roles at VIBE.`,
     leftBorder: '#11B1FF',
     leftImage:
-      'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/64f0cf64d065ec0e03a05fcf_64b0f78718f9c21036a0549d_DSCF2880.jpeg',
+      'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66cf6b5237a8bc0f37c02e01_anika.webp',
     rightBorder: '#FF0082',
     rightImage:
       'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/64f0cec2663f1a2774a16651_Copyright_by_David_Dollmann_IMG_3294%20copy%20(1)%20Mittel.jpeg',
@@ -81,14 +81,20 @@ export const initAboutUsDesktop = () => {
   isDesktopInitialized = true
 
   const DOM = {
-    leftImageBorder: document.getElementById('left_image_border'),
-    rightImageBorder: document.getElementById('right_image_border'),
+    leftImageBorder: document.getElementById('left_pixel_border'),
+    leftPixelCover: document.getElementById('left_pixel_cover'),
+    leftPixels: document.getElementsByClassName('left_pixel'),
+    rightPixels: document.getElementsByClassName('right_pixel'),
+    rightPixelBorder: document.getElementById('right_pixel_border'),
+    rightPixelCover: document.getElementById('right_pixel_cover'),
     leftImage: document.getElementById('left_image'),
     rightImage: document.getElementById('right_image'),
     selectorContainer: document.getElementById('selector_container'),
     textContainer: document.getElementById('paragraph_text'),
     upArrowButtons: Array.from(document.getElementsByClassName('up_arrow')),
     downArrowButtons: Array.from(document.getElementsByClassName('down_arrow')),
+    iconLeft: document.getElementsByClassName('icon_left'),
+    iconRight: document.getElementsByClassName('icon_right'),
   }
 
   let currentIndex = 0
@@ -122,12 +128,26 @@ export const initAboutUsDesktop = () => {
     currentIndex = index
   }
 
-  function updateContent(index) {
-    const { leftBorder, rightBorder, paragraphText, leftImage, rightImage } =
+  async function updateContent(index) {
+    const { paragraphText, leftImage, rightImage, leftBorder, rightBorder } =
       elements[index]
 
-    DOM.leftImageBorder.style.color = leftBorder
-    DOM.rightImageBorder.style.color = rightBorder
+    DOM.leftImageBorder.style.backgroundColor = leftBorder
+    DOM.leftImageBorder.style.borderColor = leftBorder
+    DOM.rightPixelBorder.style.backgroundColor = rightBorder
+    DOM.rightPixelBorder.style.borderColor = rightBorder
+
+    // Add background color to all left pixel boxes
+    Array.from(DOM.leftPixels).forEach((pixel) => {
+      pixel.style.backgroundColor = leftBorder
+      pixel.style.opacity = 1
+    })
+
+    Array.from(DOM.rightPixels).forEach((pixel) => {
+      pixel.style.backgroundColor = rightBorder
+      pixel.style.opacity = 1
+    })
+
     DOM.textContainer.innerText = paragraphText
 
     DOM.leftImage.src = leftImage
@@ -148,7 +168,27 @@ export const initAboutUsDesktop = () => {
 
     setTimeout(() => {
       updateContent(index)
-    }, 500)
+      gsap.to('.left_pixel', {
+        opacity: 0,
+        duration: 0.4,
+        stagger: {
+          each: 0.125,
+          from: 'random',
+          grid: 'auto',
+        },
+        ease: 'power1.inOut',
+      })
+      gsap.to('.right_pixel', {
+        opacity: 0,
+        duration: 0.4,
+        stagger: {
+          each: 0.125,
+          from: 'random',
+          grid: 'auto',
+        },
+        ease: 'power1.inOut',
+      })
+    }, 1200)
 
     DOM.textContainer.classList.remove('fade-in')
     DOM.leftImage.classList.remove('fade-in')
@@ -184,6 +224,74 @@ export const initAboutUsDesktop = () => {
     ;[DOM.textContainer, DOM.leftImage, DOM.rightImage].forEach((el) =>
       el.classList.add('content', 'fade-in')
     )
+
+    var grid = [10, 10]
+
+    function buildGrid(vars) {
+      vars = vars || {}
+      const parent = vars.parent || document.body
+      const parentRect = parent.getBoundingClientRect()
+      const rows = vars.grid[0] || 5
+      const cols = vars.grid[1] || 5
+      const width = parentRect.width
+      const height = parentRect.height
+      const gutter = vars.gutter || 1
+      const className = vars.className || ''
+
+      const container = document.createElement('div')
+      container.style.cssText = `
+        width: ${width}px;
+        height: ${height}px;
+        display: grid;
+        grid-template-columns: repeat(${cols}, 1fr);
+        grid-template-rows: repeat(${rows}, 1fr);
+        gap: ${gutter}px;
+      `
+
+      for (let i = 0; i < rows * cols; i++) {
+        const box = document.createElement('div')
+        box.className = className
+        box.setAttribute('data-index', i)
+        if (vars.onCellClick) {
+          box.addEventListener('click', vars.onCellClick)
+        }
+        container.appendChild(box)
+      }
+
+      parent.appendChild(container)
+      return container
+    }
+
+    buildGrid({
+      grid: grid,
+      className: 'left_pixel',
+      gutter: 7,
+      parent: DOM.leftPixelCover,
+    })
+
+    buildGrid({
+      grid: grid,
+      className: 'right_pixel',
+      gutter: 7,
+      parent: DOM.rightPixelCover,
+    })
+
+    // Add continuous floating animation to icon_left
+    gsap.to(DOM.iconLeft, {
+      y: -15,
+      duration: 2,
+      repeat: -1,
+      yoyo: true,
+      ease: 'power1.inOut',
+    })
+
+    gsap.to(DOM.iconRight, {
+      y: 20,
+      duration: 3,
+      repeat: -1,
+      yoyo: true,
+      ease: 'power1.inOut',
+    })
   }
 
   initSetup()

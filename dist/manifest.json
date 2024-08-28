@@ -4,12 +4,19 @@
     "src": "src/scripts/main.js",
     "isEntry": true,
     "imports": [
-      "src/scripts/about-us/aboutUs.js"
+      "src/scripts/about-us/aboutUs.js",
+      "_vendor.cdf6cd8a.js"
     ]
   },
   "src/scripts/about-us/aboutUs.js": {
     "file": "aboutUs.js",
     "src": "src/scripts/about-us/aboutUs.js",
-    "isEntry": true
+    "isEntry": true,
+    "imports": [
+      "_vendor.cdf6cd8a.js"
+    ]
+  },
+  "_vendor.cdf6cd8a.js": {
+    "file": "assets/vendor.cdf6cd8a.js"
   }
 }
