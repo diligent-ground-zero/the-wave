@@ -6,7 +6,8 @@ import gsap from 'gsap'
 const elements = [
   {
     title: 'WHO THE VIBE?',
-    paragraphText: `As the founder of VIBE, Lukas made it his mission to revolutionize the world of sound. His vision is to make music and sound as simple and accessible as possible—especially in a time where technology offers us nearly limitless possibilities. With VIBE, he aims to redefine the role of music and sound and enhance their value for brands. He firmly believes that great sound sells better and leaves a lasting impression`,
+    paragraphText: `As the founder of VIBE, Lukas made it his mission to revolutionize the world of sound. His vision is to make music and sound as simple and accessible as possible—especially in a time where technology offers us nearly limitless possibilities. With VIBE, he aims to redefine the role of music and sound and enhance their value for brands. He firmly believes that great sound sells better and leaves a lasting impression.
+    Anika is a producer and new biz manager. With four years of experience in the music industry, she’s been not only writing her own songs but also overseeing projects and generating artistic concepts. Her multifaceted skills make her a driving force in both creative and managerial roles at VIBE.`,
     leftBorder: '#11B1FF',
     leftImage:
       'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66cf6b5237a8bc0f37c02e01_anika.webp',
@@ -25,18 +26,18 @@ OUR VIBES FOR YOU: MUSIC CONCEPTION & SUPERVISION, MUSIC COMPOSITION, SOUND DESI
       'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6be3e3964c1900f6a331d_2.webp',
     rightBorder: '#11B1FF',
     rightImage:
-      'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6be3ebdca4acf6988c288_3.webp',
+      'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6c2293c92b4f730d7a4eb_2024_vibe_Presse_Julia_Tiemann-10.webp',
   },
   {
     title: 'WHAT THE VIBE?',
     paragraphText: `WE LOVE A CHALLENGE, WHETHER IT BE SEEKING OUT A ONE-HIT WONDER FROM 1994, REPLACING AN UNAVAILABLE TRACK THAT EVERYONE HAS "MOOD LOVE" FOR, OR TURNING A TIGHT BUDGET INTO A MEMORABLE JINGLE.
 WE DO IT ALL, WE TAKE PRIDE IN OUR WORK WHILE ALWAYS RESPECTING THE PROCESS.`,
-    leftBorder: '#0F008C',
+    leftBorder: '#FFF500',
     leftImage:
-      'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6c2293c92b4f730d7a4eb_2024_vibe_Presse_Julia_Tiemann-10.webp',
+      'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6c229cc0cb2a3b8471c79_2024_vibe_Presse_Julia_Tiemann-1.webp',
     rightBorder: '#FF0082',
     rightImage:
-      'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6c229cc0cb2a3b8471c79_2024_vibe_Presse_Julia_Tiemann-1.webp',
+      'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6be3e728f16660577db58_4.webp',
   },
   {
     title: 'WHERE THE VIBE?',
@@ -46,7 +47,7 @@ OUR CREATIVES ARE BASED IN GERMANY, ITALY, PORTUGAL, UK, BRAZIL, THE NORDICS AND
 OR AS KID CUDI ONCE SAID: DAY'N'NITE.`,
     leftBorder: '#FFF500',
     leftImage:
-      'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6be3e728f16660577db58_4.webp',
+      'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6c229190f166a69becdd7_2024_vibe_Presse_Julia_Tiemann-9.webp',
     rightBorder: '#FF0082',
     rightImage:
       'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6be3e3964c1900f6a331d_2.webp',
