@@ -6,7 +6,7 @@ import gsap from 'gsap'
 const elements = [
   {
     title: 'WHO THE VIBE?',
-    paragraphText: `Anika is a producer and new biz manager. With four years of experience in the music industry, she's been not only writing her own songs but also overseeing projects and generating artistic concepts. Her multifaceted skills make her a driving force in both creative and managerial roles at VIBE.`,
+    paragraphText: `As the founder of VIBE, Lukas made it his mission to revolutionize the world of sound. His vision is to make music and sound as simple and accessible as possible—especially in a time where technology offers us nearly limitless possibilities. With VIBE, he aims to redefine the role of music and sound and enhance their value for brands. He firmly believes that great sound sells better and leaves a lasting impression`,
     leftBorder: '#11B1FF',
     leftImage:
       'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66cf6b5237a8bc0f37c02e01_anika.webp',
@@ -20,12 +20,12 @@ const elements = [
 THE VIBE LEADS US, IN RELATIONS AND IN BUSINESS. AND THAT'S WHAT'S IMPORTANT.
 WE WORK WITH MORE THAN 50 INTERNATIONALLY RENOWNED COMPOSERS, AUDIO ENGINEERS & SUPERVISORS.
 OUR VIBES FOR YOU: MUSIC CONCEPTION & SUPERVISION, MUSIC COMPOSITION, SOUND DESIGN, VOICE-OVER, MIXING (ALL FORMATS AVAILABLE).`,
-    leftBorder: '#11B1FF',
+    leftBorder: '#FF0082',
     leftImage:
-      'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/64f0cf64d065ec0e03a05fcf_64b0f78718f9c21036a0549d_DSCF2880.jpeg',
-    rightBorder: '#FF0082',
+      'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6be3e3964c1900f6a331d_2.webp',
+    rightBorder: '#11B1FF',
     rightImage:
-      'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/64f0cec2663f1a2774a16651_Copyright_by_David_Dollmann_IMG_3294%20copy%20(1)%20Mittel.jpeg',
+      'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6be3ebdca4acf6988c288_3.webp',
   },
   {
     title: 'WHAT THE VIBE?',
@@ -33,10 +33,10 @@ OUR VIBES FOR YOU: MUSIC CONCEPTION & SUPERVISION, MUSIC COMPOSITION, SOUND DESI
 WE DO IT ALL, WE TAKE PRIDE IN OUR WORK WHILE ALWAYS RESPECTING THE PROCESS.`,
     leftBorder: '#0F008C',
     leftImage:
-      'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/64f0cec1909714f98f17bd94_DSCF2904%20Mittel.jpeg',
+      'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6c2293c92b4f730d7a4eb_2024_vibe_Presse_Julia_Tiemann-10.webp',
     rightBorder: '#FF0082',
     rightImage:
-      'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/64f0cec1805aa7cf97c27df4_DSCF2919%20Mittel.jpeg',
+      'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6c229cc0cb2a3b8471c79_2024_vibe_Presse_Julia_Tiemann-1.webp',
   },
   {
     title: 'WHERE THE VIBE?',
@@ -44,12 +44,12 @@ WE DO IT ALL, WE TAKE PRIDE IN OUR WORK WHILE ALWAYS RESPECTING THE PROCESS.`,
 BUT: VIBE IS MANDATORY, LOCATION IS SECONDARY. WE'RE HAPPY TO HAVE ACCESS TO MULTIPLE CREATIVE SPACES IN HAMBURG, BERLIN AND MUNICH.
 OUR CREATIVES ARE BASED IN GERMANY, ITALY, PORTUGAL, UK, BRAZIL, THE NORDICS AND THE U.S, WHICH GIVES US AN ADVANTAGE WHEN WORKING WITH TIGHT DEADLINES (6-9 HOURS TIME DIFFERENCE IS EAAASY).
 OR AS KID CUDI ONCE SAID: DAY'N'NITE.`,
-    leftBorder: '#FF0082',
+    leftBorder: '#FFF500',
     leftImage:
-      'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/64f07b5bfe4b3cbdb047d87e_ezgif.com-gif-maker.gif',
-    rightBorder: '#FFF500',
+      'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6be3e728f16660577db58_4.webp',
+    rightBorder: '#FF0082',
     rightImage:
-      'https://uploads-ssl.webflow.com/64f07b5afe4b3cbdb047d7f2/64f0cf64d065ec0e03a05fcf_64b0f78718f9c21036a0549d_DSCF2880.jpeg',
+      'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6be3e3964c1900f6a331d_2.webp',
   },
 ]
 
