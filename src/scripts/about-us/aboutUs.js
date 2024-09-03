@@ -6,8 +6,8 @@ import gsap from 'gsap'
 const elements = [
   {
     title: 'WHO THE VIBE?',
-    paragraphText: `As the founder of VIBE, Lukas made it his mission to revolutionize the world of sound. His vision is to make music and sound as simple and accessible as possible—especially in a time where technology offers us nearly limitless possibilities. With VIBE, he aims to redefine the role of music and sound and enhance their value for brands. He firmly believes that great sound sells better and leaves a lasting impression.
-    Anika is a producer and new biz manager. With four years of experience in the music industry, she’s been not only writing her own songs but also overseeing projects and generating artistic concepts. Her multifaceted skills make her a driving force in both creative and managerial roles at VIBE.`,
+    paragraphText: `As the founder of VIBE, Lukas made it his mission to revolutionize the world of sound. His vision is to make music and sound as simple and accessible as possible—especially in a time where technology offers us nearly limitless possibilities. With VIBE, he aims to redefine the role of music and sound and enhance their value for brands. He firmly believes that great sound sells better and leaves a lasting impression. 
+Anika is a producer and new biz manager. With four years of experience in the music industry, she’s been not only writing her own songs but also overseeing projects and generating artistic concepts. Her multifaceted skills make her a driving force in both creative and managerial roles at VIBE.`,
     leftBorder: '#11B1FF',
     leftImage:
       'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66cf6b5237a8bc0f37c02e01_anika.webp',
