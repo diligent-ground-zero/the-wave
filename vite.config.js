@@ -20,7 +20,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: './src/scripts/main.js',
-        aboutUs: './src/scripts/about-us/aboutUs.js',
+        about: './src/scripts/about.js',
       },
       output: {
         format: 'esm',
