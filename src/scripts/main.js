@@ -5,32 +5,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentPath = window.location.pathname
 
   if (currentPath === '/') {
-    const { ensureAudioContext, playSong, audio } = initMusicPlayer()
+    const { ensureAudioContext, playSong, pauseSong } = initMusicPlayer()
 
-    let analyser
-
-    const setupAnalyser = () => {
-      const audioContext = ensureAudioContext()
-      if (!analyser) {
-        analyser = audioContext.createAnalyser()
-        const source = audioContext.createMediaElementSource(audio)
-        source.connect(analyser)
-        analyser.connect(audioContext.destination)
-        analyser.fftSize = 512
+    const playButtonListener = (event) => {
+      if (event.target.closest('.play-btn')) {
+        ensureAudioContext()
+          .resume()
+          .then(() => {
+            const musicContainer = document.getElementById('music-container')
+            const isPlaying = musicContainer.classList.contains('play')
+            if (isPlaying) {
+              pauseSong()
+            } else {
+              playSong()
+            }
+          })
       }
     }
 
-    const interactionListener = () => {
-      setupAnalyser()
-      ensureAudioContext()
-        .resume()
-        .then(() => {
-          playSong()
-        })
-      document.body.removeEventListener('click', interactionListener)
-    }
-
-    document.body.addEventListener('click', interactionListener)
+    document.addEventListener('click', playButtonListener)
   } else if (currentPath === '/uber-uns' || currentPath === '/uber-uns-copy') {
     setupAboutUs()
   }

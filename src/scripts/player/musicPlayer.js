@@ -52,10 +52,9 @@ function playSong() {
   playIcon.style.display = 'none'
   pauseIcon.style.display = 'block'
 
-  if (!isAudioContextInitialized) {
-    const context = ensureAudioContext()
+  const context = ensureAudioContext()
+  if (context.state === 'suspended') {
     context.resume().then(() => {
-      isAudioContextInitialized = true
       audio.play().catch(console.error)
     })
   } else {
@@ -64,6 +63,7 @@ function playSong() {
 }
 
 function pauseSong() {
+  console.log()
   musicContainer.classList.remove('play')
   playIcon.style.display = 'block'
   pauseIcon.style.display = 'none'
@@ -105,6 +105,13 @@ function DurTime(e) {
 }
 
 function initMusicPlayer() {
+  console.log('Initializing music player...')
+
+  if (!title || !audio) {
+    console.error('Required elements not found. Aborting initialization.')
+    return
+  }
+
   songs.forEach((song) => {
     const link = document.createElement('link')
     link.href = cdnPrefix + song.fileName
@@ -113,10 +120,10 @@ function initMusicPlayer() {
     document.head.appendChild(link)
   })
 
-  if (!title || !audio) return
-
+  console.log('Loading initial song...')
   loadSong(songs[songIndex])
 
+  console.log('Adding event listeners...')
   prevBtn.addEventListener('click', prevSong)
   nextBtn.addEventListener('click', nextSong)
   audio.addEventListener('timeupdate', updateProgress)
@@ -125,6 +132,7 @@ function initMusicPlayer() {
   audio.addEventListener('timeupdate', DurTime)
 
   playBtn.addEventListener('click', () => {
+    console.log('Play button clicked')
     const isPlaying = musicContainer.classList.contains('play')
     if (isPlaying) {
       pauseSong()
@@ -133,7 +141,8 @@ function initMusicPlayer() {
     }
   })
 
-  return { ensureAudioContext, playSong, audio }
+  console.log('Music player initialized successfully')
+  return { ensureAudioContext, playSong, pauseSong, audio }
 }
 
 export default initMusicPlayer
