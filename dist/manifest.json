@@ -2,21 +2,14 @@
   "src/scripts/main.js": {
     "file": "main.js",
     "src": "src/scripts/main.js",
-    "isEntry": true,
-    "imports": [
-      "src/scripts/about-us/aboutUs.js",
-      "_vendor.cdf6cd8a.js"
-    ]
+    "isEntry": true
   },
   "src/scripts/about-us/aboutUs.js": {
     "file": "aboutUs.js",
     "src": "src/scripts/about-us/aboutUs.js",
-    "isEntry": true,
-    "imports": [
-      "_vendor.cdf6cd8a.js"
-    ]
+    "isEntry": true
   },
-  "_vendor.cdf6cd8a.js": {
-    "file": "assets/vendor.cdf6cd8a.js"
+  "_vendor.e3bb175a.js": {
+    "file": "assets/vendor.e3bb175a.js"
   }
 }
