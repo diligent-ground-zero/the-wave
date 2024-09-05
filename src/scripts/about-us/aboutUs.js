@@ -6,8 +6,10 @@ import gsap from 'gsap'
 const elements = [
   {
     title: 'WHO THE VIBE?',
-    paragraphText: `As the founder of VIBE, Lukas made it his mission to revolutionize the world of sound. His vision is to make music and sound as simple and accessible as possible—especially in a time where technology offers us nearly limitless possibilities. With VIBE, he aims to redefine the role of music and sound and enhance their value for brands. He firmly believes that great sound sells better and leaves a lasting impression. 
-Anika is a producer and new biz manager. With four years of experience in the music industry, she’s been not only writing her own songs but also overseeing projects and generating artistic concepts. Her multifaceted skills make her a driving force in both creative and managerial roles at VIBE.`,
+    lukasText:
+      'As the founder of VIBE, Lukas made it his mission to revolutionize the world of sound. His vision is to make music and sound as simple and accessible as possible—especially in a time where technology offers us nearly limitless possibilities. With VIBE, he aims to redefine the role of music and sound and enhance their value for brands. He firmly believes that great sound sells better and leaves a lasting impression.',
+    anikaText:
+      'Anika is a producer and new biz manager. With four years of experience in the music industry, she’s been not only writing her own songs but also overseeing projects and generating artistic concepts. Her multifaceted skills make her a driving force in both creative and managerial roles at VIBE.',
     leftBorder: '#11B1FF',
     leftImage:
       'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66cf6b5237a8bc0f37c02e01_anika.webp',
@@ -96,9 +98,83 @@ export const initAboutUsDesktop = () => {
     downArrowButtons: Array.from(document.getElementsByClassName('down_arrow')),
     iconLeft: document.getElementsByClassName('icon_left'),
     iconRight: document.getElementsByClassName('icon_right'),
+
+    // elements for Who The Vibe part
+    whoTheVibeContainer: document.getElementById(
+      'who_the_vibe_select_container'
+    ),
+    leftRocketship: document.getElementById('left_rocket'),
+    rightRocketship: document.getElementById('right_rocket'),
+    whoTheVibeTextContainer: document.getElementById(
+      'who_the_vibe_text_container'
+    ),
+    whoTheVibeBack: document.getElementById('who_vibe_text_back'),
+    whoTheVibeTitle: document.getElementById('who_the_vibe_title'),
+    whoTheVibeParagraph: document.getElementById('who_the_vibe_paragraph'),
+
+    gameboyContent: document.getElementById('gameboy_content'),
   }
 
+  DOM.whoTheVibeContainer.style.display = 'none'
+  DOM.whoTheVibeTextContainer.style.display = 'none'
+  DOM.leftRocketship.addEventListener('click', () => leftRocket())
+  DOM.rightRocketship.addEventListener('click', () => rightRocket())
+  DOM.whoTheVibeBack.addEventListener('click', () => backButton())
+
+  DOM.gameboyContent.classList.add('content')
+
   let currentIndex = 0
+
+  function leftRocket() {
+    DOM.gameboyContent.classList.add('fade-out')
+
+    setTimeout(() => {
+      DOM.whoTheVibeParagraph.innerText = elements[0].anikaText
+      DOM.whoTheVibeTitle.innerText = 'NEW BIZ'
+
+      DOM.gameboyContent.classList.remove('fade-out')
+      DOM.gameboyContent.classList.add('fade-in')
+
+      DOM.whoTheVibeContainer.style.display = 'none'
+      DOM.whoTheVibeTextContainer.style.display = 'flex'
+    }, 500)
+
+    DOM.gameboyContent.classList.remove('fade-in')
+  }
+
+  function rightRocket() {
+    DOM.gameboyContent.classList.add('fade-out')
+
+    setTimeout(() => {
+      DOM.whoTheVibeParagraph.innerText = elements[0].lukasText
+      DOM.whoTheVibeTitle.innerText = 'MGMT'
+
+      DOM.gameboyContent.classList.remove('fade-out')
+      DOM.gameboyContent.classList.add('fade-in')
+
+      DOM.whoTheVibeContainer.style.display = 'none'
+      DOM.whoTheVibeTextContainer.style.display = 'flex'
+    }, 500)
+
+    DOM.gameboyContent.classList.remove('fade-in')
+  }
+
+  function backButton() {
+    DOM.gameboyContent.classList.add('fade-out')
+
+    setTimeout(() => {
+      DOM.whoTheVibeParagraph.innerText = elements[0].lukasText
+      DOM.whoTheVibeTitle.innerText = 'MGMT'
+
+      DOM.gameboyContent.classList.remove('fade-out')
+      DOM.gameboyContent.classList.add('fade-in')
+
+      DOM.whoTheVibeTextContainer.style.display = 'none'
+      DOM.whoTheVibeContainer.style.display = 'flex'
+    }, 500)
+
+    DOM.gameboyContent.classList.remove('fade-in')
+  }
 
   function createArrow(direction) {
     const arrow = document.createElement('img')
@@ -133,6 +209,23 @@ export const initAboutUsDesktop = () => {
     const { paragraphText, leftImage, rightImage, leftBorder, rightBorder } =
       elements[index]
 
+    // if Who The Vibe is selected, show different design
+    if (index === 0) {
+      DOM.gameboyContent.classList.add('fade-in')
+
+      DOM.textContainer.style.display = 'none'
+      DOM.whoTheVibeContainer.style.display = 'flex'
+    } else {
+      DOM.textContainer.style.display = 'flex'
+      DOM.whoTheVibeContainer.style.display = 'none'
+      DOM.whoTheVibeTextContainer.style.display = 'none'
+
+      DOM.textContainer.innerText = paragraphText
+
+      DOM.textContainer.classList.remove('fade-out')
+      DOM.textContainer.classList.add('fade-in')
+    }
+
     DOM.leftImageBorder.style.backgroundColor = leftBorder
     DOM.leftImageBorder.style.borderColor = leftBorder
     DOM.rightPixelBorder.style.backgroundColor = rightBorder
@@ -149,8 +242,6 @@ export const initAboutUsDesktop = () => {
       pixel.style.opacity = 1
     })
 
-    DOM.textContainer.innerText = paragraphText
-
     DOM.leftImage.src = leftImage
     DOM.rightImage.src = rightImage
 
@@ -158,8 +249,6 @@ export const initAboutUsDesktop = () => {
     DOM.leftImage.classList.add('fade-in')
     DOM.rightImage.classList.remove('fade-out')
     DOM.rightImage.classList.add('fade-in')
-    DOM.textContainer.classList.remove('fade-out')
-    DOM.textContainer.classList.add('fade-in')
   }
 
   function transitionContent(index) {
@@ -222,9 +311,13 @@ export const initAboutUsDesktop = () => {
     }
 
     updateContent(0)
-    ;[DOM.textContainer, DOM.leftImage, DOM.rightImage].forEach((el) =>
-      el.classList.add('content', 'fade-in')
-    )
+    ;[
+      DOM.textContainer,
+      DOM.leftImage,
+      DOM.rightImage,
+      DOM.whoTheVibeContainer,
+      DOM.whoTheVibeTextContainer,
+    ].forEach((el) => el.classList.add('content', 'fade-in'))
 
     var grid = [10, 10]
 
