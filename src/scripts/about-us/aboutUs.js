@@ -16,6 +16,8 @@ const elements = [
     rightBorder: '#FF0082',
     rightImage:
       'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66cf83d04a52e336daf84c6d_2024_vibe_Presse_Julia_Tiemann-8.jpg',
+    paragraphText:
+      'As the founder of VIBE, Lukas made it his mission to revolutionize the world of sound. His vision is to make music and sound as simple and accessible as possible—especially in a time where technology offers us nearly limitless possibilities. With VIBE, he aims to redefine the role of music and sound and enhance their value for brands. He firmly believes that great sound sells better and leaves a lasting impression. \n \n Anika is a producer and new biz manager. With four years of experience in the music industry, she’s been not only writing her own songs but also overseeing projects and generating artistic concepts. Her multifaceted skills make her a driving force in both creative and managerial roles at VIBE.',
   },
   {
     title: 'WHY THE VIBE?',
@@ -212,7 +214,7 @@ export const initAboutUsDesktop = () => {
     // if Who The Vibe is selected, show different design
     if (index === 0) {
       DOM.gameboyContent.classList.add('fade-in')
-
+      DOM.textContainer.classList.remove('fade-out')
       DOM.textContainer.style.display = 'none'
       DOM.whoTheVibeContainer.style.display = 'flex'
     } else {
@@ -249,12 +251,15 @@ export const initAboutUsDesktop = () => {
     DOM.leftImage.classList.add('fade-in')
     DOM.rightImage.classList.remove('fade-out')
     DOM.rightImage.classList.add('fade-in')
+    DOM.whoTheVibeContainer.classList.remove('fade-out')
+    DOM.whoTheVibeContainer.classList.add('fade-in')
   }
 
   function transitionContent(index) {
     DOM.textContainer.classList.add('fade-out')
     DOM.leftImage.classList.add('fade-out')
     DOM.rightImage.classList.add('fade-out')
+    DOM.whoTheVibeContainer.classList.add('fade-out')
 
     setTimeout(() => {
       updateContent(index)
@@ -283,6 +288,7 @@ export const initAboutUsDesktop = () => {
     DOM.textContainer.classList.remove('fade-in')
     DOM.leftImage.classList.remove('fade-in')
     DOM.rightImage.classList.remove('fade-in')
+    DOM.whoTheVibeContainer.classList.remove('fade-in')
   }
 
   function changeElement(direction) {
@@ -411,7 +417,8 @@ export const initAboutUsMobile = () => {
     if (title && image && paragraphText) {
       title.innerText = elements[0].title
       paragraphText.innerText = elements[0].paragraphText
-      image.src = elements[0].leftImage
+      image.src =
+        index === 0 ? elements[index].rightImage : elements[index].leftImage
 
       title.classList.add('content', 'fade-in')
       paragraphText.classList.add('content', 'fade-in')
