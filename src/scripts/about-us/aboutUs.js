@@ -12,7 +12,7 @@ const elements = [
       'Anika is a producer and new biz manager. With four years of experience in the music industry, she’s been not only writing her own songs but also overseeing projects and generating artistic concepts. Her multifaceted skills make her a driving force in both creative and managerial roles at VIBE.',
     leftBorder: '#11B1FF',
     leftImage:
-      'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66cf6b5237a8bc0f37c02e01_anika.webp',
+      'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/651d325ebb1199b5bd92a1a0_Copyright_by_David_Dollmann_IMG_3294%20copy%20(1).jpg',
     rightBorder: '#FF0082',
     rightImage:
       'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66cf83d04a52e336daf84c6d_2024_vibe_Presse_Julia_Tiemann-8.jpg',
@@ -127,19 +127,71 @@ export const initAboutUsDesktop = () => {
 
   function leftRocket() {
     DOM.gameboyContent.classList.add('fade-out')
+    DOM.leftImage.classList.add('fade-out')
+    DOM.rightImage.classList.add('fade-out')
+
+    /*setTimeout(() => {
+      DOM.whoTheVibeParagraph.innerText = elements[0].anikaText
+      DOM.whoTheVibeTitle.innerText = 'NEW BIZ'
+      DOM.leftImage.src = 'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66cf6b5237a8bc0f37c02e01_anika.webp'
+      DOM.rightImage.src = 'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6be3e3964c1900f6a331d_2.webp'
+
+      DOM.gameboyContent.classList.remove('fade-out')
+      DOM.leftImage.classList.remove('fade-out')
+      DOM.rightImage.classList.remove('fade-out')
+
+      DOM.gameboyContent.classList.add('fade-in')
+      DOM.leftImage.classList.add('fade-in')
+      DOM.rightImage.classList.add('fade-in')
+
+      DOM.whoTheVibeContainer.style.display = 'none'
+      DOM.whoTheVibeTextContainer.style.display = 'flex'
+    }, 500)*/
 
     setTimeout(() => {
       DOM.whoTheVibeParagraph.innerText = elements[0].anikaText
       DOM.whoTheVibeTitle.innerText = 'NEW BIZ'
+      DOM.leftImage.src =
+        'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66cf6b5237a8bc0f37c02e01_anika.webp'
+      DOM.rightImage.src =
+        'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6be3e3964c1900f6a331d_2.webp'
 
       DOM.gameboyContent.classList.remove('fade-out')
+      DOM.leftImage.classList.remove('fade-out')
+      DOM.rightImage.classList.remove('fade-out')
+
       DOM.gameboyContent.classList.add('fade-in')
+      DOM.leftImage.classList.add('fade-in')
+      DOM.rightImage.classList.add('fade-in')
 
       DOM.whoTheVibeContainer.style.display = 'none'
       DOM.whoTheVibeTextContainer.style.display = 'flex'
-    }, 500)
+
+      gsap.to('.left_pixel', {
+        opacity: 0,
+        duration: 0.4,
+        stagger: {
+          each: 0.125,
+          from: 'random',
+          grid: 'auto',
+        },
+        ease: 'power1.inOut',
+      })
+      gsap.to('.right_pixel', {
+        opacity: 0,
+        duration: 0.4,
+        stagger: {
+          each: 0.125,
+          from: 'random',
+          grid: 'auto',
+        },
+        ease: 'power1.inOut',
+      })
+    }, 1200)
 
     DOM.gameboyContent.classList.remove('fade-in')
+    DOM.leftImage.classList.remove('fade-in')
+    DOM.rightImage.classList.remove('fade-in')
   }
 
   function rightRocket() {
