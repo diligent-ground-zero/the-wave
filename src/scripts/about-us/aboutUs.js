@@ -132,24 +132,6 @@ export const initAboutUsDesktop = () => {
     DOM.leftImage.classList.add('fade-out')
     DOM.rightImage.classList.add('fade-out')
 
-    /*setTimeout(() => {
-      DOM.whoTheVibeParagraph.innerText = elements[0].anikaText
-      DOM.whoTheVibeTitle.innerText = 'NEW BIZ'
-      DOM.leftImage.src = 'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66cf6b5237a8bc0f37c02e01_anika.webp'
-      DOM.rightImage.src = 'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6be3e3964c1900f6a331d_2.webp'
-
-      DOM.gameboyContent.classList.remove('fade-out')
-      DOM.leftImage.classList.remove('fade-out')
-      DOM.rightImage.classList.remove('fade-out')
-
-      DOM.gameboyContent.classList.add('fade-in')
-      DOM.leftImage.classList.add('fade-in')
-      DOM.rightImage.classList.add('fade-in')
-
-      DOM.whoTheVibeContainer.style.display = 'none'
-      DOM.whoTheVibeTextContainer.style.display = 'flex'
-    }, 500)*/
-
     setTimeout(() => {
       DOM.whoTheVibeParagraph.innerText = elements[0].anikaText
       DOM.whoTheVibeTitle.innerText = 'NEW BIZ'
@@ -215,6 +197,16 @@ export const initAboutUsDesktop = () => {
       DOM.leftImage.classList.remove('fade-out')
       DOM.rightImage.classList.remove('fade-out')
 
+      Array.from(DOM.leftPixels).forEach((pixel) => {
+        pixel.style.backgroundColor = elements[0].leftBorder
+        pixel.style.opacity = 1
+      })
+
+      Array.from(DOM.rightPixels).forEach((pixel) => {
+        pixel.style.backgroundColor = elements[0].rightBorder
+        pixel.style.opacity = 1
+      })
+
       DOM.leftImage.src = elements[0].leftImage
       DOM.rightImage.src = elements[0].rightImage
 
@@ -222,9 +214,30 @@ export const initAboutUsDesktop = () => {
       DOM.leftImage.classList.add('fade-in')
       DOM.rightImage.classList.add('fade-in')
 
+      gsap.to('.left_pixel', {
+        opacity: 0,
+        duration: 0.4,
+        stagger: {
+          each: 0.125,
+          from: 'random',
+          grid: 'auto',
+        },
+        ease: 'power1.inOut',
+      })
+      gsap.to('.right_pixel', {
+        opacity: 0,
+        duration: 0.4,
+        stagger: {
+          each: 0.125,
+          from: 'random',
+          grid: 'auto',
+        },
+        ease: 'power1.inOut',
+      })
+
       DOM.whoTheVibeTextContainer.style.display = 'none'
       DOM.whoTheVibeContainer.style.display = 'flex'
-    }, 500)
+    }, 1200)
 
     DOM.gameboyContent.classList.remove('fade-in')
     DOM.leftImage.classList.remove('fade-in')
