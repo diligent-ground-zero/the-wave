@@ -168,27 +168,6 @@ export const initAboutUsDesktop = () => {
 
       DOM.whoTheVibeContainer.style.display = 'none'
       DOM.whoTheVibeTextContainer.style.display = 'flex'
-
-      gsap.to('.left_pixel', {
-        opacity: 0,
-        duration: 0.4,
-        stagger: {
-          each: 0.125,
-          from: 'random',
-          grid: 'auto',
-        },
-        ease: 'power1.inOut',
-      })
-      gsap.to('.right_pixel', {
-        opacity: 0,
-        duration: 0.4,
-        stagger: {
-          each: 0.125,
-          from: 'random',
-          grid: 'auto',
-        },
-        ease: 'power1.inOut',
-      })
     }, 1200)
 
     DOM.gameboyContent.classList.remove('fade-in')
@@ -198,36 +177,58 @@ export const initAboutUsDesktop = () => {
 
   function rightRocket() {
     DOM.gameboyContent.classList.add('fade-out')
+    DOM.leftImage.classList.add('fade-out')
+    DOM.rightImage.classList.add('fade-out')
 
     setTimeout(() => {
       DOM.whoTheVibeParagraph.innerText = elements[0].lukasText
       DOM.whoTheVibeTitle.innerText = 'MGMT'
+      DOM.leftImage.src =
+        'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6be3ebdca4acf6988c288_3.webp'
+      DOM.rightImage.src =
+        'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/64f0cec1909714f98f17bd94_DSCF2904%20Mittel.jpeg'
 
       DOM.gameboyContent.classList.remove('fade-out')
+      DOM.leftImage.classList.remove('fade-out')
+      DOM.rightImage.classList.remove('fade-out')
+
       DOM.gameboyContent.classList.add('fade-in')
+      DOM.leftImage.classList.add('fade-in')
+      DOM.rightImage.classList.add('fade-in')
 
       DOM.whoTheVibeContainer.style.display = 'none'
       DOM.whoTheVibeTextContainer.style.display = 'flex'
-    }, 500)
+    }, 1200)
 
     DOM.gameboyContent.classList.remove('fade-in')
+    DOM.leftImage.classList.remove('fade-in')
+    DOM.rightImage.classList.remove('fade-in')
   }
 
   function backButton() {
     DOM.gameboyContent.classList.add('fade-out')
+    DOM.leftImage.classList.add('fade-out')
+    DOM.rightImage.classList.add('fade-out')
 
     setTimeout(() => {
-      DOM.whoTheVibeParagraph.innerText = elements[0].lukasText
-      DOM.whoTheVibeTitle.innerText = 'MGMT'
-
       DOM.gameboyContent.classList.remove('fade-out')
+      DOM.leftImage.classList.remove('fade-out')
+      DOM.rightImage.classList.remove('fade-out')
+
+      DOM.leftImage.src = elements[0].leftImage
+      DOM.rightImage.src = elements[0].rightImage
+
       DOM.gameboyContent.classList.add('fade-in')
+      DOM.leftImage.classList.add('fade-in')
+      DOM.rightImage.classList.add('fade-in')
 
       DOM.whoTheVibeTextContainer.style.display = 'none'
       DOM.whoTheVibeContainer.style.display = 'flex'
     }, 500)
 
     DOM.gameboyContent.classList.remove('fade-in')
+    DOM.leftImage.classList.remove('fade-in')
+    DOM.rightImage.classList.remove('fade-in')
   }
 
   function createArrow(direction) {
