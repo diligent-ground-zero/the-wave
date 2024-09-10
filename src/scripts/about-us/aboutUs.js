@@ -197,43 +197,12 @@ export const initAboutUsDesktop = () => {
       DOM.leftImage.classList.remove('fade-out')
       DOM.rightImage.classList.remove('fade-out')
 
-      Array.from(DOM.leftPixels).forEach((pixel) => {
-        pixel.style.backgroundColor = elements[0].leftBorder
-        pixel.style.opacity = 1
-      })
-
-      Array.from(DOM.rightPixels).forEach((pixel) => {
-        pixel.style.backgroundColor = elements[0].rightBorder
-        pixel.style.opacity = 1
-      })
-
       DOM.leftImage.src = elements[0].leftImage
       DOM.rightImage.src = elements[0].rightImage
 
       DOM.gameboyContent.classList.add('fade-in')
       DOM.leftImage.classList.add('fade-in')
       DOM.rightImage.classList.add('fade-in')
-
-      gsap.to('.left_pixel', {
-        opacity: 0,
-        duration: 0.4,
-        stagger: {
-          each: 0.125,
-          from: 'random',
-          grid: 'auto',
-        },
-        ease: 'power1.inOut',
-      })
-      gsap.to('.right_pixel', {
-        opacity: 0,
-        duration: 0.4,
-        stagger: {
-          each: 0.125,
-          from: 'random',
-          grid: 'auto',
-        },
-        ease: 'power1.inOut',
-      })
 
       DOM.whoTheVibeTextContainer.style.display = 'none'
       DOM.whoTheVibeContainer.style.display = 'flex'
