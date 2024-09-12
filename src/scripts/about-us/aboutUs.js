@@ -246,7 +246,6 @@ export const initAboutUsDesktop = () => {
     const { paragraphText, leftImage, rightImage, leftBorder, rightBorder } =
       elements[index]
 
-    // if Who The Vibe is selected, show different design
     if (index === 0) {
       DOM.gameboyContent.classList.add('fade-in')
       DOM.textContainer.classList.remove('fade-out')
