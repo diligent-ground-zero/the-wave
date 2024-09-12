@@ -134,7 +134,7 @@ export const initAboutUsDesktop = () => {
 
     setTimeout(() => {
       DOM.whoTheVibeParagraph.innerText = elements[0].anikaText
-      DOM.whoTheVibeTitle.innerText = 'NEW BIZ'
+      DOM.whoTheVibeTitle.innerText = 'THE BIZ'
       DOM.leftImage.src =
         'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66cf6b5237a8bc0f37c02e01_anika.webp'
       DOM.rightImage.src =
