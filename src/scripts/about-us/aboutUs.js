@@ -12,7 +12,7 @@ const elements = [
       'Anika is a producer and new biz manager. With four years of experience in the music industry, she’s been not only writing her own songs but also overseeing projects and generating artistic concepts. Her multifaceted skills make her a driving force in both creative and managerial roles at VIBE.',
     leftBorder: '#11B1FF',
     leftImage:
-      'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/651d325ebb1199b5bd92a1a0_Copyright_by_David_Dollmann_IMG_3294%20copy%20(1).jpg',
+      'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6be3ebdca4acf6988c288_3.webp',
     rightBorder: '#FF0082',
     rightImage:
       'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66cf83d04a52e336daf84c6d_2024_vibe_Presse_Julia_Tiemann-8.jpg',
@@ -135,15 +135,15 @@ export const initAboutUsDesktop = () => {
     setTimeout(() => {
       DOM.whoTheVibeParagraph.innerText =
         side === 'left' ? elements[0].anikaText : elements[0].lukasText
-      DOM.whoTheVibeTitle.innerText = side === 'left' ? 'THE BIZ' : 'MGMT'
+      DOM.whoTheVibeTitle.innerText = side === 'left' ? 'NEW BIZ' : 'MGMT'
       DOM.leftImage.src =
         side === 'left'
           ? 'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66cf6b5237a8bc0f37c02e01_anika.webp'
-          : 'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6be3ebdca4acf6988c288_3.webp'
+          : 'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6be3e3964c1900f6a331d_2.webp'
       DOM.rightImage.src =
         side === 'left'
-          ? 'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6be3e3964c1900f6a331d_2.webp'
-          : 'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/64f0cec1909714f98f17bd94_DSCF2904%20Mittel.jpeg'
+          ? 'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6be3ebdca4acf6988c288_3.webp'
+          : 'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66e4107952ca534dd0516711_2024_vibe_Presse_Julia_Tiemann-1-min.jpg'
 
       Array.from(DOM.leftPixels).forEach((pixel) => {
         pixel.style.backgroundColor = elements[0].leftBorder
