@@ -3,6 +3,7 @@ import '../../styles/aboutUs.css'
 let isDesktopInitialized = false
 let isMobileInitialized = false
 import gsap from 'gsap'
+
 const elements = [
   {
     title: 'WHO THE VIBE?',
@@ -505,7 +506,8 @@ export const initAboutUsMobile = () => {
       setTimeout(() => {
         title.innerText = elements[index].title
         paragraphText.innerText = elements[index].paragraphText
-        image.src = elements[index].leftImage
+        image.src =
+          index === 0 ? elements[index].rightImage : elements[index].leftImage
 
         title.classList.remove('fade-out')
         paragraphText.classList.remove('fade-out')
