@@ -11,9 +11,9 @@ const playIcon = document.querySelector('.play-img')
 const pauseIcon = document.querySelector('.pause-img')
 
 const songs = [
-  { name: 'Luminous Dream', fileName: 'Vibe 01 - Have It Your Way.mp3' },
+  { name: 'Have it Your Way', fileName: 'Vibe 01 - Have It Your Way.mp3' },
   { name: 'Fire Inside', fileName: 'Vibe 02 - Fire inside.mp3' },
-  { name: 'Have It Your Way', fileName: 'Vibe 03 - Luminous Dream.mp3' },
+  { name: 'Luminious Dream', fileName: 'Vibe 03 - Luminous Dream.mp3' },
   { name: 'You Color Me In', fileName: 'Vibe 04 - You Color Me In.mp3' },
 ]
 
