@@ -111,16 +111,18 @@ export default class MusicPlayer {
     this.elements.audio.pause()
   }
 
-  prevSong() {
+  async prevSong() {
     this.state.songIndex =
       (this.state.songIndex - 1 + this.config.songs.length) %
       this.config.songs.length
-    this.loadSong(this.config.songs[this.state.songIndex])
+    await this.loadSong(this.config.songs[this.state.songIndex])
+    this.playSong()
   }
 
-  nextSong() {
+  async nextSong() {
     this.state.songIndex = (this.state.songIndex + 1) % this.config.songs.length
-    this.loadSong(this.config.songs[this.state.songIndex])
+    await this.loadSong(this.config.songs[this.state.songIndex])
+    this.playSong()
   }
 
   updateProgress(e) {
