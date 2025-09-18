@@ -120,79 +120,79 @@ export const initAboutUsDesktop = () => {
 
   DOM.whoTheVibeContainer.style.display = 'none'
   DOM.whoTheVibeTextContainer.style.display = 'none'
-  DOM.leftRocketship.addEventListener('click', () => whoTheVibeSelect('left'))
-  DOM.rightRocketship.addEventListener('click', () => whoTheVibeSelect('right'))
+  // DOM.leftRocketship.addEventListener('click', () => whoTheVibeSelect('left'))
+  // DOM.rightRocketship.addEventListener('click', () => whoTheVibeSelect('right'))
   DOM.whoTheVibeBack.addEventListener('click', () => backButton())
 
   DOM.gameboyContent.classList.add('content')
 
   let currentIndex = 0
 
-  function whoTheVibeSelect(side) {
-    DOM.gameboyContent.classList.add('fade-out')
-    DOM.leftImage.classList.add('fade-out')
-    DOM.rightImage.classList.add('fade-out')
+  // function whoTheVibeSelect(side) {
+  //   DOM.gameboyContent.classList.add('fade-out')
+  //   DOM.leftImage.classList.add('fade-out')
+  //   DOM.rightImage.classList.add('fade-out')
 
-    setTimeout(() => {
-      DOM.whoTheVibeParagraph.innerText =
-        side === 'left' ? elements[0].anikaText : elements[0].lukasText
-      DOM.whoTheVibeTitle.innerText = side === 'left' ? 'NEW BIZ' : 'MGMT'
-      DOM.leftImage.src =
-        side === 'left'
-          ? 'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66cf6b5237a8bc0f37c02e01_anika.webp'
-          : 'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6be3ebdca4acf6988c288_3.webp'
-      DOM.rightImage.src =
-        side === 'left'
-          ? 'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6be3e3964c1900f6a331d_2.webp'
-          : 'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66e4107952ca534dd0516711_2024_vibe_Presse_Julia_Tiemann-1-min.jpg'
+  //   setTimeout(() => {
+  //     DOM.whoTheVibeParagraph.innerText =
+  //       side === 'left' ? elements[0].anikaText : elements[0].lukasText
+  //     DOM.whoTheVibeTitle.innerText = side === 'left' ? 'NEW BIZ' : 'MGMT'
+  //     DOM.leftImage.src =
+  //       side === 'left'
+  //         ? 'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66cf6b5237a8bc0f37c02e01_anika.webp'
+  //         : 'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6be3ebdca4acf6988c288_3.webp'
+  //     DOM.rightImage.src =
+  //       side === 'left'
+  //         ? 'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66d6be3e3964c1900f6a331d_2.webp'
+  //         : 'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66e4107952ca534dd0516711_2024_vibe_Presse_Julia_Tiemann-1-min.jpg'
 
-      Array.from(DOM.leftPixels).forEach((pixel) => {
-        pixel.style.backgroundColor = elements[0].leftBorder
-        pixel.style.opacity = 1
-      })
+  //     Array.from(DOM.leftPixels).forEach((pixel) => {
+  //       pixel.style.backgroundColor = elements[0].leftBorder
+  //       pixel.style.opacity = 1
+  //     })
 
-      Array.from(DOM.rightPixels).forEach((pixel) => {
-        pixel.style.backgroundColor = elements[0].rightBorder
-        pixel.style.opacity = 1
-      })
+  //     Array.from(DOM.rightPixels).forEach((pixel) => {
+  //       pixel.style.backgroundColor = elements[0].rightBorder
+  //       pixel.style.opacity = 1
+  //     })
 
-      DOM.gameboyContent.classList.remove('fade-out')
-      DOM.leftImage.classList.remove('fade-out')
-      DOM.rightImage.classList.remove('fade-out')
+  //     DOM.gameboyContent.classList.remove('fade-out')
+  //     DOM.leftImage.classList.remove('fade-out')
+  //     DOM.rightImage.classList.remove('fade-out')
 
-      DOM.gameboyContent.classList.add('fade-in')
-      DOM.leftImage.classList.add('fade-in')
-      DOM.rightImage.classList.add('fade-in')
+  //     DOM.gameboyContent.classList.add('fade-in')
+  //     DOM.leftImage.classList.add('fade-in')
+  //     DOM.rightImage.classList.add('fade-in')
 
-      DOM.whoTheVibeContainer.style.display = 'none'
-      DOM.whoTheVibeTextContainer.style.display = 'flex'
+  //     DOM.whoTheVibeContainer.style.display = 'none'
+  //     DOM.whoTheVibeTextContainer.style.display = 'flex'
 
-      gsap.to('.left_pixel', {
-        opacity: 0,
-        duration: 0.4,
-        stagger: {
-          each: 0.125,
-          from: 'random',
-          grid: 'auto',
-        },
-        ease: 'power1.inOut',
-      })
-      gsap.to('.right_pixel', {
-        opacity: 0,
-        duration: 0.4,
-        stagger: {
-          each: 0.125,
-          from: 'random',
-          grid: 'auto',
-        },
-        ease: 'power1.inOut',
-      })
-    }, 1200)
+  //     gsap.to('.left_pixel', {
+  //       opacity: 0,
+  //       duration: 0.4,
+  //       stagger: {
+  //         each: 0.125,
+  //         from: 'random',
+  //         grid: 'auto',
+  //       },
+  //       ease: 'power1.inOut',
+  //     })
+  //     gsap.to('.right_pixel', {
+  //       opacity: 0,
+  //       duration: 0.4,
+  //       stagger: {
+  //         each: 0.125,
+  //         from: 'random',
+  //         grid: 'auto',
+  //       },
+  //       ease: 'power1.inOut',
+  //     })
+  //   }, 1200)
 
-    DOM.gameboyContent.classList.remove('fade-in')
-    DOM.leftImage.classList.remove('fade-in')
-    DOM.rightImage.classList.remove('fade-in')
-  }
+  //   DOM.gameboyContent.classList.remove('fade-in')
+  //   DOM.leftImage.classList.remove('fade-in')
+  //   DOM.rightImage.classList.remove('fade-in')
+  // }
 
   function backButton() {
     DOM.gameboyContent.classList.add('fade-out')
@@ -483,6 +483,7 @@ export const initAboutUsMobile = () => {
   const title = document.getElementById('mobile_selector_text')
   const image = document.getElementById('mobile_image')
   const paragraphText = document.getElementById('mobile_paragraph')
+  const links = document.getElementById('links')
 
   function initMobileSetup() {
     if (title && image && paragraphText) {
@@ -490,6 +491,10 @@ export const initAboutUsMobile = () => {
       paragraphText.innerText = elements[0].paragraphText
       image.src =
         index === 0 ? elements[index].rightImage : elements[index].leftImage
+
+      if (links) {
+        links.style.display = index === 0 ? '' : 'none'
+      }
 
       title.classList.add('content', 'fade-in')
       paragraphText.classList.add('content', 'fade-in')
@@ -508,6 +513,10 @@ export const initAboutUsMobile = () => {
         paragraphText.innerText = elements[index].paragraphText
         image.src =
           index === 0 ? elements[index].rightImage : elements[index].leftImage
+
+        if (links) {
+          links.style.display = index === 0 ? '' : 'none'
+        }
 
         title.classList.remove('fade-out')
         paragraphText.classList.remove('fade-out')
