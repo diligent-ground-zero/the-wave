@@ -13,7 +13,8 @@ const elements = [
       'Anika is a producer and new biz manager. With four years of experience in the music industry, she’s been not only writing her own songs but also overseeing projects and generating artistic concepts. Her multifaceted skills make her a driving force in both creative and managerial roles at VIBE.',
     leftBorder: '#FF0082',
     leftImage:
-      'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/64f0cec2663f1a2774a16651_Copyright_by_David_Dollmann_IMG_3294%20copy%20(1)%20Mittel.jpeg',
+      'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/698dac557cd6858023e04ced_IMG_1172%202.webp',
+    // 'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/64f0cec2663f1a2774a16651_Copyright_by_David_Dollmann_IMG_3294%20copy%20(1)%20Mittel.jpeg',
     rightBorder: '#11B1FF',
     rightImage:
       'https://cdn.prod.website-files.com/64f07b5afe4b3cbdb047d7f2/66cf83d04a52e336daf84c6d_2024_vibe_Presse_Julia_Tiemann-8.jpg',
